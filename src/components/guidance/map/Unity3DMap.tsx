@@ -1,5 +1,12 @@
 import { useEffect } from "react";
 
+declare global {
+  interface Window {
+    sendRequestToUnity: () => void;
+    processMessageFromUnity: () => void;
+  }
+}
+
 function Unity3DMap(): JSX.Element {
   useEffect(() => {
     function appendUnityLoaderScript(): void {
