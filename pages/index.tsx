@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import ChatBotGuide from "../src/components/guidance/chat/ChatBotGuide";
 import Unity3DMap from "../src/components/guidance/map/Unity3DMap";
 
 const Home: NextPage = () => {
@@ -12,6 +13,7 @@ const Home: NextPage = () => {
       </Head>
       <main>
         <Unity3DMap />
+        <ChatBotGuide />
       </main>
     </div>
   );
