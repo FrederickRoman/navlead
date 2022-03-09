@@ -1,7 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import ChatBotGuide from "../src/components/guidance/chat/ChatBotGuide";
-import Unity3DMap from "../src/components/guidance/map/Unity3DMap";
+import NavGuidance from "../src/components/guidance/NavGuidance";
 
 const Home: NextPage = () => {
   return (
@@ -12,8 +11,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Unity3DMap />
-        <ChatBotGuide />
+        <NavGuidance />
       </main>
     </div>
   );
