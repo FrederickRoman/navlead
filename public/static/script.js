@@ -61,14 +61,14 @@ if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
   canvas.style.width = "960px";
   canvas.style.height = "600px";
 }
-// loadingBar.style.display = "block";
+loadingBar.style.display = "block";
 
 var script = document.createElement("script");
 script.src = loaderUrl;
 var myGameInstance = null; //Added
 script.onload = () => {
   createUnityInstance(canvas, config, (progress) => {
-    //progressBarFull.style.width = 100 * progress + "%";
+    progressBarFull.style.width = 100 * progress + "%";
   })
     .then((unityInstance) => {
       myGameInstance = unityInstance; //Added
