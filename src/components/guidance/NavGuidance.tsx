@@ -1,7 +1,41 @@
+import { useState } from "react";
 import Unity3DMap from "./map/Unity3DMap";
 import ChatBotGuide from "./chat/ChatBotGuide";
 
+function requestMapLocation(): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const TIMEOUT_DELAY = 3000;
+    const TIMEOUT_ERROR_MSG = "unity map location response took too long";
+    const rejectTimeout = () => reject(TIMEOUT_ERROR_MSG);
+    const timeoutId = setTimeout(rejectTimeout, TIMEOUT_DELAY);
+    const resolveLocation = (event: Event): void => {
+      clearTimeout(timeoutId);
+      const location = (event as CustomEvent).detail;
+      resolve(location);
+    };
+    window.addEventListener("unityResponse", resolveLocation, { once: true });
+    window.sendRequestToUnity();
+  });
+}
+
 function NavGuidance(): JSX.Element {
+  const DEFAULT_QUESTION = "";
+  const DEFAULT_TARGET = "";
+  const [question, setQuestion] = useState<string>(DEFAULT_QUESTION);
+  const [target, setTarget] = useState<string>(DEFAULT_TARGET);
+
+  const handleSubmitNavGuideReq = async (event: any): Promise<void> => {
+    try {
+      event.preventDefault();
+      const mapLocation = await requestMapLocation();
+      console.log(mapLocation);
+      console.log(question);
+      console.log(target);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, est
@@ -26,7 +60,19 @@ function NavGuidance(): JSX.Element {
       asperiores, atque cupiditate. Perspiciatis minus magni architecto maiores
       aliquid dolorem recusandae debitis exercitationem culpa?
       <Unity3DMap />
-      <ChatBotGuide />
+      ratione ad commodi tempore ut temporibus ea eum vero voluptates totam ab?
+      Reiciendis odit eum at ipsum obcaecati aperiam neque qui laborum. Possimus
+      quisquam atque minima eius sint! Modi totam expedita recusandae quidem hic
+      et tempore laboriosam exercitationem vel quaerat distinctio libero,
+      asperiores, atque cupiditate. Perspiciatis minus magni architecto maiores
+      aliquid dolorem recusandae debitis exercitationem culpa?
+      <ChatBotGuide
+        question={question}
+        setQuestion={setQuestion}
+        target={target}
+        setTarget={setTarget}
+        handleSubmitNavGuideReq={handleSubmitNavGuideReq}
+      />
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic, beatae
       consequuntur inventore ducimus earum in. Mollitia nam alias quisquam
       labore aut tempora, sed ea, quam tempore porro suscipit officiis?
