@@ -24,8 +24,17 @@ function Unity3DMap(): JSX.Element {
 
   return (
     <>
-      <div id="unity-container" className="unity-desktop">
-        <canvas id="unity-canvas" width="960" height="600" />
+      <div
+        id="unity-container"
+        className="unity-desktop"
+        style={{ display: "grid", placeContent: "center" }}
+      >
+        <canvas
+          id="unity-canvas"
+          width="480" //960
+          height="300" //600
+          tabIndex={0}
+        ></canvas>
         <div id="unity-loading-bar">
           <div id="unity-logo" />
           <div id="unity-progress-bar-empty">
