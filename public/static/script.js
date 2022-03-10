@@ -100,4 +100,22 @@
 
   window.sendRequestToUnity = sendRequestToUnity;
   window.processMessageFromUnity = processMessageFromUnity;
+
+  // canvas.focus();
+  // // canvas.addEventListener("click", function () {
+  // //   canvas.focus();
+  // //   console.log("canvas was clicked");
+  // // });
+  // canvas.addEventListener("mouseenter", function () {
+  //   canvas.focus();
+  //   console.log("canvas was mouseenter");
+  // });
+  // canvas.addEventListener("mouseleave", function () {
+  //   canvas.blur();
+  //   console.log("canvas was blur");
+  // });
+  canvas.addEventListener("touchstart", function () {
+    canvas.focus();
+    console.log("canvas was touchstarted");
+  });
 })();
