@@ -32,17 +32,19 @@ function ChatBotGuide(): JSX.Element {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Enter your question
-        <input
-          type="text"
-          value={question}
-          onChange={(e) => setQuestion(e.target.value)}
-        />
-      </label>
-      <input type="submit" />
-    </form>
+    <section style={{ display: "grid", placeContent: "center" }}>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Enter your question
+          <input
+            type="text"
+            value={question}
+            onChange={(e) => setQuestion(e.target.value)}
+          />
+        </label>
+        <input type="submit" />
+      </form>
+    </section>
   );
 }
 
