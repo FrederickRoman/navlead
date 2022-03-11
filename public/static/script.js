@@ -101,7 +101,7 @@
   window.sendRequestToUnity = sendRequestToUnity;
   window.processMessageFromUnity = processMessageFromUnity;
 
-  // canvas.focus();
+  canvas.focus();
   // // canvas.addEventListener("click", function () {
   // //   canvas.focus();
   // //   console.log("canvas was clicked");
