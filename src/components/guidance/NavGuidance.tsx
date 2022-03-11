@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Unity3DMap from "./map/Unity3DMap";
 import ChatBotGuide from "./chat/ChatBotGuide";
+import NavGuideService from "../../services/NavGuideService";
 
 function requestMapLocation(): Promise<string> {
   return new Promise((resolve, reject) => {
@@ -21,21 +22,23 @@ function requestMapLocation(): Promise<string> {
 const TARGET_OPTIONS = Object.freeze([
   { value: "Plant", text: "Plant" },
   { value: "Bed", text: "Bed" },
-])
+]);
 
 function NavGuidance(): JSX.Element {
   const DEFAULT_QUESTION = "";
   const DEFAULT_TARGET = "";
+  const DEFAULT_ANSWER = "";
   const [question, setQuestion] = useState<string>(DEFAULT_QUESTION);
   const [target, setTarget] = useState<string>(DEFAULT_TARGET);
+  const [answer, setAnswer] = useState<string>(DEFAULT_ANSWER);
 
   const handleSubmitNavGuideReq = async (event: any): Promise<void> => {
     try {
       event.preventDefault();
       const mapLocation = await requestMapLocation();
-      console.log(mapLocation);
-      console.log(question);
-      console.log(target);
+      const navInquiry = { question, target, mapLocation };
+      const navGuideAnswer = await NavGuideService.answer(navInquiry);
+      setAnswer(navGuideAnswer);
     } catch (error) {
       console.log(error);
     }
@@ -71,6 +74,7 @@ function NavGuidance(): JSX.Element {
         targetOptions={TARGET_OPTIONS}
         target={target}
         setTarget={setTarget}
+        answer={answer}
         handleSubmitNavGuideReq={handleSubmitNavGuideReq}
       />
       Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic, beatae
