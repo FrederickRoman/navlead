@@ -18,6 +18,11 @@ function requestMapLocation(): Promise<string> {
   });
 }
 
+const TARGET_OPTIONS = Object.freeze([
+  { value: "Plant", text: "Plant" },
+  { value: "Bed", text: "Bed" },
+])
+
 function NavGuidance(): JSX.Element {
   const DEFAULT_QUESTION = "";
   const DEFAULT_TARGET = "";
@@ -60,15 +65,10 @@ function NavGuidance(): JSX.Element {
       asperiores, atque cupiditate. Perspiciatis minus magni architecto maiores
       aliquid dolorem recusandae debitis exercitationem culpa?
       <Unity3DMap />
-      ratione ad commodi tempore ut temporibus ea eum vero voluptates totam ab?
-      Reiciendis odit eum at ipsum obcaecati aperiam neque qui laborum. Possimus
-      quisquam atque minima eius sint! Modi totam expedita recusandae quidem hic
-      et tempore laboriosam exercitationem vel quaerat distinctio libero,
-      asperiores, atque cupiditate. Perspiciatis minus magni architecto maiores
-      aliquid dolorem recusandae debitis exercitationem culpa?
       <ChatBotGuide
         question={question}
         setQuestion={setQuestion}
+        targetOptions={TARGET_OPTIONS}
         target={target}
         setTarget={setTarget}
         handleSubmitNavGuideReq={handleSubmitNavGuideReq}
