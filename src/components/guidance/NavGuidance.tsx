@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Unity3DMap from "./map/Unity3DMap";
 import ChatBotGuide from "./chat/ChatBotGuide";
-import NavGuideService from "@/services/NavGuideService";
+import NavGuideService from "@/services/client/NavGuideService";
 
 function requestMapLocation(): Promise<string> {
   return new Promise((resolve, reject) => {
