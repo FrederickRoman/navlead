@@ -20,11 +20,17 @@
     "incremental": true,
     "baseUrl": "./src",
     "paths": {
+      "@/constants/*": [
+        "constants/*"
+      ],
       "@/components/*": [
         "components/*"
       ],
       "@/services/*": [
         "services/*"
+      ],
+      "@/types/*": [
+        "types/*"
       ]
     },
   },
