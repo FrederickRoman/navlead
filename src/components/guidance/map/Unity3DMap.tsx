@@ -11,8 +11,8 @@ declare global {
 export class UnityMessager {
   static async requestTravelerLocation(): Promise<Location> {
     const unityMessageToLocation = (unityMessage: string): Location => {
-      const splitMsg = unityMessage.split(/,|:/);
-      const [x, y, z] = [splitMsg[1], splitMsg[3], splitMsg[5]].map(parseFloat);
+      const splitMsg = unityMessage.split(',');
+      const [x, y, z] = splitMsg.map(parseFloat);
       return { x, y, z };
     };
     return new Promise((resolve, reject) => {
