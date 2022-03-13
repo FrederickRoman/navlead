@@ -1,9 +1,34 @@
 import { useEffect } from "react";
+import Location from "@/types/interfaces/Location";
 
 declare global {
   interface Window {
     sendRequestToUnity: () => void;
     processMessageFromUnity: () => void;
+  }
+}
+
+export class UnityMessager {
+  static async requestTravelerLocation(): Promise<Location> {
+    const unityMessageToLocation = (unityMessage: string): Location => {
+      const splitMsg = unityMessage.split(/,|:/);
+      const [x, y, z] = [splitMsg[1], splitMsg[3], splitMsg[5]].map(parseFloat);
+      return { x, y, z };
+    };
+    return new Promise((resolve, reject) => {
+      const TIMEOUT_DELAY = 3000;
+      const TIMEOUT_ERROR_MSG = "unity map location response took too long";
+      const rejectTimeout = () => reject(TIMEOUT_ERROR_MSG);
+      const timeoutId = setTimeout(rejectTimeout, TIMEOUT_DELAY);
+      const resolveLocation = (event: Event): void => {
+        clearTimeout(timeoutId);
+        const unityMessage = (event as CustomEvent).detail;
+        const location = unityMessageToLocation(unityMessage);
+        resolve(location);
+      };
+      window.addEventListener("unityResponse", resolveLocation, { once: true });
+      window.sendRequestToUnity();
+    });
   }
 }
 

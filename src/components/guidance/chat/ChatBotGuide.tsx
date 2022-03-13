@@ -1,7 +1,7 @@
 interface Props {
   question: string;
   setQuestion: React.Dispatch<React.SetStateAction<string>>;
-  targetOptions: readonly { value: string; text: string }[];
+  targetOptions: readonly string[];
   target: string;
   setTarget: React.Dispatch<React.SetStateAction<string>>;
   answer: string;
@@ -24,9 +24,9 @@ function ChatBotGuide(props: Props): JSX.Element {
       <div>{answer}</div>
       <form onSubmit={handleSubmitNavGuideReq}>
         <select value={target} onChange={(e) => setTarget(e.target.value)}>
-          {targetOptions.map(({ value, text }, i) => (
-            <option value={value} key={i}>
-              {text}
+          {targetOptions.map((option, i) => (
+            <option value={option} key={i}>
+              {option}
             </option>
           ))}
         </select>

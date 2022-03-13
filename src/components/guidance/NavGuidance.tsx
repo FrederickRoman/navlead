@@ -1,32 +1,14 @@
 import { useState } from "react";
-import Unity3DMap from "./map/Unity3DMap";
-import ChatBotGuide from "./chat/ChatBotGuide";
 import NavGuideService from "@/services/client/NavGuideService";
-
-function requestMapLocation(): Promise<string> {
-  return new Promise((resolve, reject) => {
-    const TIMEOUT_DELAY = 3000;
-    const TIMEOUT_ERROR_MSG = "unity map location response took too long";
-    const rejectTimeout = () => reject(TIMEOUT_ERROR_MSG);
-    const timeoutId = setTimeout(rejectTimeout, TIMEOUT_DELAY);
-    const resolveLocation = (event: Event): void => {
-      clearTimeout(timeoutId);
-      const location = (event as CustomEvent).detail;
-      resolve(location);
-    };
-    window.addEventListener("unityResponse", resolveLocation, { once: true });
-    window.sendRequestToUnity();
-  });
-}
-
-const TARGET_OPTIONS = Object.freeze([
-  { value: "Plant", text: "Plant" },
-  { value: "Bed", text: "Bed" },
-]);
+import Traveler from "@/types/interfaces/Traveler";
+import Location from "@/types/interfaces/Location";
+import TARGET_OPTIONS from "@/constants/targetOptions";
+import Unity3DMap, { UnityMessager } from "./map/Unity3DMap";
+import ChatBotGuide from "./chat/ChatBotGuide";
 
 function NavGuidance(): JSX.Element {
   const DEFAULT_QUESTION = "";
-  const DEFAULT_TARGET = "";
+  const DEFAULT_TARGET = TARGET_OPTIONS[0];
   const DEFAULT_ANSWER = "";
   const [question, setQuestion] = useState<string>(DEFAULT_QUESTION);
   const [target, setTarget] = useState<string>(DEFAULT_TARGET);
@@ -35,10 +17,11 @@ function NavGuidance(): JSX.Element {
   const handleSubmitNavGuideReq = async (event: any): Promise<void> => {
     try {
       event.preventDefault();
-      const mapLocation = await requestMapLocation();
-      const navInquiry = { question, target, mapLocation };
-      const navGuideAnswer = await NavGuideService.answer(navInquiry);
-      setAnswer(navGuideAnswer);
+      const location: Location = await UnityMessager.requestTravelerLocation();
+      const traveler: Traveler = { question, target, location };
+      const answer: string = await NavGuideService.answer(traveler);
+      console.log(answer);
+      setAnswer(answer);
     } catch (error) {
       console.log(error);
     }
