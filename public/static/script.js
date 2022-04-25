@@ -90,7 +90,6 @@
     myGameInstance.SendMessage("Player", "requestLocationFromUnity");
   }
 
-  //Added
   function processMessageFromUnity(message) {
     //console.log(`Message received from Unity: ${message}`);
     var evtPayload = { detail: message };
@@ -98,8 +97,24 @@
     window.dispatchEvent(msgFromUnityEvt);
   }
 
+
+  function processGameStateFromUnity(message) {
+    console.log(`Message received from Unity: ${message}`);
+    //sendAnswerToUnity(message);
+    var evtPayload = { detail: message };
+    var msgFromUnityEvt = new CustomEvent("askGuide", evtPayload);
+    window.dispatchEvent(msgFromUnityEvt);
+  }
+
+  function sendAnswerToUnity(answer) {
+    console.log("Sending question to Unity");
+    myGameInstance.SendMessage("Controller", "onAnswerFromJS", answer);
+  }
+
   window.sendRequestToUnity = sendRequestToUnity;
   window.processMessageFromUnity = processMessageFromUnity;
+  window.processGameStateFromUnity = processGameStateFromUnity;
+  window.sendAnswerToUnity = sendAnswerToUnity;
 
   canvas.focus();
   // // canvas.addEventListener("click", function () {
