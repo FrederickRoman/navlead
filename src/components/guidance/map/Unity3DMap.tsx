@@ -5,13 +5,14 @@ declare global {
   interface Window {
     sendRequestToUnity: () => void;
     processMessageFromUnity: () => void;
+    sendAnswerToUnity: (answer: string) => void;
   }
 }
 
 export class UnityMessager {
   static async requestTravelerLocation(): Promise<Location> {
     const unityMessageToLocation = (unityMessage: string): Location => {
-      const splitMsg = unityMessage.split(',');
+      const splitMsg = unityMessage.split(",");
       const [x, y, z] = splitMsg.map(parseFloat);
       return { x, y, z };
     };

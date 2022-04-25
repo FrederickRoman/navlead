@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NavGuideService from "@/services/client/NavGuideService";
 import Traveler from "@/types/interfaces/Traveler";
 import Location from "@/types/interfaces/Location";
@@ -13,6 +13,33 @@ function NavGuidance(): JSX.Element {
   const [question, setQuestion] = useState<string>(DEFAULT_QUESTION);
   const [target, setTarget] = useState<string>(DEFAULT_TARGET);
   const [answer, setAnswer] = useState<string>(DEFAULT_ANSWER);
+
+  useEffect(() => {
+    const unityMessageToLocation = (unityMessage: string): Location => {
+      const splitMsg = unityMessage.split(",");
+      const [x, y, z] = splitMsg.map(parseFloat);
+      return { x, y, z };
+    };
+    async function askGuide(event: Event): Promise<void> {
+      try {
+        const unityGameState = (event as CustomEvent).detail;
+        console.log("ask guide");
+        console.log(unityGameState);
+        const gameStateObj = JSON.parse(unityGameState);
+        console.log(gameStateObj);
+        const location = unityMessageToLocation(gameStateObj.location);
+        const { question, target } = gameStateObj;
+        const traveler: Traveler = { question, target, location };
+        const answer: string = await NavGuideService.answer(traveler);
+        window.sendAnswerToUnity(answer);
+        console.log(answer);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    window.addEventListener("askGuide", askGuide);
+    return () => window.removeEventListener("askGuide", askGuide);
+  }, []);
 
   const handleSubmitNavGuideReq = async (event: any): Promise<void> => {
     try {
@@ -29,7 +56,7 @@ function NavGuidance(): JSX.Element {
 
   return (
     <>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, est
+      {/* Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, est
       similique debitis voluptatum aspernatur cupiditate iusto repudiandae
       sequi, porro dolorem explicabo qui. Nostrum blanditiis iure fugit, alias
       fuga deserunt temporibus. Autem saepe odio labore quos amet eaque
@@ -49,9 +76,9 @@ function NavGuidance(): JSX.Element {
       quisquam atque minima eius sint! Modi totam expedita recusandae quidem hic
       et tempore laboriosam exercitationem vel quaerat distinctio libero,
       asperiores, atque cupiditate. Perspiciatis minus magni architecto maiores
-      aliquid dolorem recusandae debitis exercitationem culpa?
+      aliquid dolorem recusandae debitis exercitationem culpa? */}
       <Unity3DMap />
-      <ChatBotGuide
+      {/* <ChatBotGuide
         question={question}
         setQuestion={setQuestion}
         targetOptions={TARGET_OPTIONS}
@@ -59,8 +86,8 @@ function NavGuidance(): JSX.Element {
         setTarget={setTarget}
         answer={answer}
         handleSubmitNavGuideReq={handleSubmitNavGuideReq}
-      />
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic, beatae
+      /> */}
+      {/* Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic, beatae
       consequuntur inventore ducimus earum in. Mollitia nam alias quisquam
       labore aut tempora, sed ea, quam tempore porro suscipit officiis?
       Architecto sit labore porro, eligendi, rem possimus tempora quibusdam
@@ -274,7 +301,7 @@ function NavGuidance(): JSX.Element {
       Suscipit voluptate explicabo aut odio rem non vel nisi deserunt, aliquid
       dolorum error architecto corrupti eum qui pariatur! Corrupti officiis,
       voluptas ut sapiente quaerat nulla iure, inventore distinctio mollitia
-      quod voluptates quisquam id quo?
+      quod voluptates quisquam id quo? */}
     </>
   );
 }
