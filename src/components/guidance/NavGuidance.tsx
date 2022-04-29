@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import NavGuideService from "@/services/client/NavGuideService";
 import Traveler from "@/types/interfaces/Traveler";
 import Location from "@/types/interfaces/Location";
-import Unity3DMap from "./map/Unity3DMap";
+import Unity3dScene from "./scene/Unity3dScene";
 
 function NavGuidance(): JSX.Element {
   useEffect(() => {
@@ -28,7 +28,7 @@ function NavGuidance(): JSX.Element {
     return () => window.removeEventListener("askGuide", askGuide);
   }, []);
 
-  return <Unity3DMap />;
+  return <Unity3dScene />;
 }
 
 export default NavGuidance;
