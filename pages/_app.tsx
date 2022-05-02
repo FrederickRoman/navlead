@@ -11,6 +11,7 @@ import { CacheProvider } from "@emotion/react";
 import createCache, { EmotionCache } from "@emotion/cache";
 import theme from "@/themes/theme";
 import NavBar from "@/components/nav/NavBar";
+import MainFooter from "@/components/footer/MainFooter";
 
 interface Props {
   Component: PropTypes.ReactComponentLike;
@@ -36,6 +37,7 @@ function App(props: Props) {
           <CssBaseline />
           <NavBar />
           <Component {...pageProps} />
+          <MainFooter />
         </ThemeProvider>
       </StyledEngineProvider>
     </CacheProvider>
