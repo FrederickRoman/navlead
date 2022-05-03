@@ -1,14 +1,5 @@
 import Image from "next/image";
-import {
-  AppBar,
-  Box,
-  Button,
-  Grid,
-  IconButton,
-  Toolbar,
-  Typography,
-} from "@mui/material";
-import HelpIcon from "@mui/icons-material/Help";
+import { AppBar, Box, Button, Grid, Toolbar, Typography } from "@mui/material";
 import logoImg from "@/public/img/navlead_logo_light.png";
 
 function HomeLink(): JSX.Element {
@@ -17,7 +8,7 @@ function HomeLink(): JSX.Element {
       <Button>
         <Grid container justifyContent="center" alignItems="center" gap={0.1}>
           <Grid item>
-            <Grid container justifyContent="center" alignItems="center" >
+            <Grid container justifyContent="center" alignItems="center">
               <Grid item>
                 <Image
                   priority
@@ -48,13 +39,7 @@ function HomeLink(): JSX.Element {
 }
 
 function AboutLink(): JSX.Element {
-  return (
-    <Box>
-      <IconButton size="large" aria-label="about">
-        <HelpIcon sx={{ color: "background.default" }} />
-      </IconButton>
-    </Box>
-  );
+  return <Box sx={{ color: "#f3e5f5" }}>About</Box>;
 }
 
 function NavBar(): JSX.Element {
