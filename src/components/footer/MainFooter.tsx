@@ -7,37 +7,37 @@ function MainFooter(): JSX.Element {
       <Toolbar>
         <Grid container justifyContent="space-between" alignItems="center">
           <Grid item>
-            <Typography variant="body1" color="#f3e5f5" align="center">
-              <Grid
-                container
-                flexDirection="column"
-                justifyContent="center"
-                alignItems="start"
-              >
-                <Grid item>
-                  ©
-                  <Link
-                    color="inherit"
-                    underline="hover"
-                    href="https://www.frederickroman.com/"
-                  >
-                    &nbsp; Frederick Roman {currentYear} &amp;
-                    <br />
-                  </Link>
-                </Grid>
-
-                <Grid item>
-                  ©
-                  <Link
-                    color="inherit"
-                    underline="hover"
-                    href="https://homeroroman.com/"
-                  >
-                    &nbsp; Homero Roman {currentYear}
-                  </Link>
-                </Grid>
+            <Grid
+              container
+              flexDirection="column"
+              justifyContent="center"
+              alignItems="start"
+            >
+              <Grid item>
+                <Link
+                  color="inherit"
+                  underline="hover"
+                  href="https://www.frederickroman.com/"
+                >
+                  <Typography variant="body1" color="#f3e5f5" align="center">
+                    © &nbsp; Frederick Roman {currentYear} &amp;
+                  </Typography>
+                  <br />
+                </Link>
               </Grid>
-            </Typography>
+
+              <Grid item>
+                <Link
+                  color="inherit"
+                  underline="hover"
+                  href="https://homeroroman.com/"
+                >
+                  <Typography variant="body1" color="#f3e5f5" align="center">
+                    © &nbsp; Homero Roman {currentYear}
+                  </Typography>
+                </Link>
+              </Grid>
+            </Grid>
           </Grid>
           <Grid item>About</Grid>
         </Grid>
