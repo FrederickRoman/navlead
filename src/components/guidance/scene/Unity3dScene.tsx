@@ -63,14 +63,14 @@ function Unity3DMap(): JSX.Element {
         style={{
           position: "relative",
           display: "grid",
-          placeItems: "center",
+          //placeItems: "center",
           backgroundImage: "url(/img/maze_pattern_by_peax_under_CC.webp)",
         }}
       >
         <canvas
           id="unity-canvas"
-          width="95vw"
-          height="calc(min(95vw/1.6, 90vh))"
+          width="100vw"
+          height="calc(min(100vw/1.6, 90vh))"
           tabIndex={0}
         />
         <div
@@ -149,18 +149,38 @@ function Unity3DMap(): JSX.Element {
             }}
           />
           <div
-            id="unity-build-title"
             style={{
-              color: "#a158a3",
-              float: "right",
-              textAlign: "center",
-              marginRight: 10,
-              //lineHeight: 38,
-              fontFamily: "'Audiowide', arial, cursive",
-              fontSize: 20,
+              display: "grid",
+              gridTemplateRows: "1fr",
+              gridTemplateColumns: "40px 1fr",
+             float: "left"
+              
             }}
           >
-            NavLead
+            <div
+              id="navlead-logo"
+              style={{
+                
+                width: 40,
+                height: 40,
+                background: "url('/img/navlead_logo.png') no-repeat center",
+              }}
+            />
+            <div
+              id="unity-build-title"
+              style={{
+                color: "#a158a3",
+              
+                textAlign: "center",
+                marginLeft: 5,
+                marginRight: 10,
+                //lineHeight: 38,
+                fontFamily: "'Audiowide', arial, cursive",
+                fontSize: 26,
+              }}
+            >
+              NavLead
+            </div>
           </div>
         </div>
       </div>
