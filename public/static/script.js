@@ -68,8 +68,8 @@
   //   canvas.style.width = "480px"; //960px
   //   canvas.style.height = "300px"; //600px
   // }
-  canvas.style.width = "95vw"//"480px"; //960px
-  canvas.style.height = "calc(min(95vw/1.6, 90vh))";//"300px"; //600px
+  canvas.style.width = "100vw"//"480px"; //960px
+  canvas.style.height = "calc(min(100vw/1.6, 90vh))";//"300px"; //600px
   loadingBar.style.display = "block";
 
   var script = document.createElement("script");
