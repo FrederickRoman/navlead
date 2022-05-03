@@ -59,12 +59,17 @@
     config.devicePixelRatio = 1;
     unityShowBanner("WebGL builds are not supported on mobile devices.");
     // added style for better fit to mobile screen
-    canvas.style.width = "95vw"//"480px"; //960px
-    canvas.style.height = "calc(min(95vw/1.6, 90vh))";//"300px"; //600px
-  } else {
-    canvas.style.width = "480px"; //960px
-    canvas.style.height = "300px"; //600px
-  }
+    // canvas.style.width = "95vw"//"480px"; //960px
+    // canvas.style.height = "calc(min(95vw/1.6, 90vh))";//"300px"; //600px
+  } 
+  // Add for all devices
+  config.devicePixelRatio = 1;
+  // else {
+  //   canvas.style.width = "480px"; //960px
+  //   canvas.style.height = "300px"; //600px
+  // }
+  canvas.style.width = "95vw"//"480px"; //960px
+  canvas.style.height = "calc(min(95vw/1.6, 90vh))";//"300px"; //600px
   loadingBar.style.display = "block";
 
   var script = document.createElement("script");
@@ -134,6 +139,6 @@
   // });
   canvas.addEventListener("touchstart", function () {
     canvas.focus();
-    console.log("canvas was touchstarted");
+    //console.log("canvas was touchstarted");
   });
 })();
