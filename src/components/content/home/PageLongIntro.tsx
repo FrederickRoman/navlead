@@ -39,7 +39,7 @@ function PageLongIntro(): JSX.Element {
                 question to the chatbot.
               </li>
               <li>
-                This pages sends the question along with the user's location in
+                This pages sends the question along with the user&apos;s location in
                 the 3D enviroment to an API server requesting the answer.
               </li>
               <li>The API server validates and authentificates the request.</li>
@@ -61,14 +61,14 @@ function PageLongIntro(): JSX.Element {
                 </Box>
                 <p style={{ textAlign: "left" }}>
                   The enviroment used in the demo is a reconstruction of Frank
-                  Lloyd Wright's final design: the circular sun house.
+                  Lloyd Wright&apos;s final design: the circular sun house.
                 </p>
                 <p style={{ textAlign: "left" }}>
                   It was constructed using Blender and exported to Unity to run
                   on your browser.
                 </p>
                 <p style={{ textAlign: "left" }}>
-                  The chatbot's UI was then added in Unity as well.
+                  The chatbot&apos;s UI was then added in Unity as well.
                 </p>
                 <Grid
                   container
@@ -81,6 +81,7 @@ function PageLongIntro(): JSX.Element {
                       src={sunHousePhotoImg}
                       placeholder="blur"
                       layout="responsive"
+                      alt="Circular Sun House wikimedia photo"
                     />
                     <Typography variant="subtitle2">
                       Circular Sun House on &nbsp;
@@ -99,6 +100,7 @@ function PageLongIntro(): JSX.Element {
                       src={sunHouseModelImg}
                       placeholder="blur"
                       layout="responsive"
+                      alt="Circular Sun House CG model in Blender"
                     />
                     <Typography variant="subtitle2">
                       CG reconstruction of Circular Sun House using Blender
