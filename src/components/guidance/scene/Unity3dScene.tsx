@@ -51,29 +51,9 @@ function useNavGuide(): void {
   }, []);
 }
 
-function useUnityCanvasResize(): [string, string] {
-  const DEFAULT_UNITY_CANVAS_WIDTH = "480px";
-  const DEFAULT_UNITY_CANVAS_HEIGHT = "300px";
-  const [width, setWidth] = useState<string>(DEFAULT_UNITY_CANVAS_WIDTH);
-  const [height, setHeight] = useState<string>(DEFAULT_UNITY_CANVAS_HEIGHT);
-
-  useEffect(() => {
-    function resizeUnityCanvas(): void {
-      setWidth("95vw");
-      setHeight("calc(min(95vw/1.6, 90vh))");
-    }
-    resizeUnityCanvas();
-    window.addEventListener("resize", resizeUnityCanvas);
-    return () => window.removeEventListener("resize", resizeUnityCanvas);
-  }, []);
-
-  return [width, height];
-}
-
 function Unity3DMap(): JSX.Element {
   useLoadUnityScript();
   useNavGuide();
-  const [width, height] = useUnityCanvasResize();
 
   return (
     <>
@@ -83,11 +63,16 @@ function Unity3DMap(): JSX.Element {
         style={{
           position: "relative",
           display: "grid",
-          placeContent: "center",
+          placeItems: "center",
           backgroundImage: "url(/img/maze_pattern_by_peax_under_CC.webp)",
         }}
       >
-        <canvas id="unity-canvas" width={width} height={height} tabIndex={0} />
+        <canvas
+          id="unity-canvas"
+          width="95vw"
+          height="calc(min(95vw/1.6, 90vh))"
+          tabIndex={0}
+        />
         <div
           id="unity-loading-bar"
           style={{
@@ -168,7 +153,7 @@ function Unity3DMap(): JSX.Element {
             style={{
               color: "#a158a3",
               float: "right",
-              textAlign:"center",
+              textAlign: "center",
               marginRight: 10,
               //lineHeight: 38,
               fontFamily: "'Audiowide', arial, cursive",
