@@ -3,8 +3,9 @@ import { Box, Grid, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import ExternalLink from "@/components/link/ExternalLink";
-import sunHousePhotoImg from "@/public/img/sun_house_wikimedia.jpg";
 import sunHouseModelImg from "@/public/img/sun_house_side_view.png";
+import sunHousePhotoImg from "@/public/img/sun_house_wiki.jpg";
+
 
 function ProcessDiagramImage(): JSX.Element {
   const theme = useTheme();
