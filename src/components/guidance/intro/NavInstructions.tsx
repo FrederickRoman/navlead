@@ -14,7 +14,7 @@ function NavInstructions(): JSX.Element {
       </Typography>
       <Box sx={{ textAlign: "left" }}>
         <Typography variant="h5">Choose a target household item</Typography>
-        <Typography variant="h5">Navigate the house</Typography>
+        <Typography variant="h5">Navigate the house (using WASD keys)</Typography>
         <Typography variant="h5">Ask the chatbot for assistance</Typography>
       </Box>
     </Box>
