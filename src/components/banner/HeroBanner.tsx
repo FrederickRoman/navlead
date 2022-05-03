@@ -67,7 +67,7 @@ function HeroBanner(): JSX.Element {
         left="50%"
         sx={{
           transform: "translate(-50%, -50%)",
-          background: "rgba(0, 0, 0, 0.6)",
+          background: "rgba(0, 0, 0, 0.5)",
           minWidth: 300,
         }}
       >
