@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Box, Grid, Typography } from "@mui/material";
-import logoImg from "@/public/img/navlead_logo.png";
+import logoImg from "@/public/img/navlead_logo.svg";
 
 function BackgroundVideo(): JSX.Element {
   return (
@@ -18,7 +18,7 @@ function FullBrandLogo(): JSX.Element {
   return (
     <Grid container justifyContent="center" alignItems="center">
       <Grid item>
-        <Image src={logoImg} width={80} height={80} alt="Navlead logo" />
+        <Image src={logoImg} width={100} height={100} alt="Navlead logo" />
       </Grid>
       <Grid item>
         <Box>
