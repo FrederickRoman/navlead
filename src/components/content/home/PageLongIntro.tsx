@@ -1,7 +1,10 @@
+import Image from "next/image";
 import { Box, Grid, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import ExternalLink from "@/components/link/ExternalLink";
+import sunHousePhotoImg from "@/public/img/sun_house_wikimedia.jpg";
+import sunHouseModelImg from "@/public/img/sun_house_side_view.png";
 
 function ProcessDiagramImage(): JSX.Element {
   const theme = useTheme();
@@ -74,8 +77,12 @@ function PageLongIntro(): JSX.Element {
                   gap={10}
                 >
                   <Grid item>
-                    <img src="/img/sun_house_wikimedia.jpg" width="100%" />
-                    <span style={{ fontSize: "0.5em" }}>
+                    <Image
+                      src={sunHousePhotoImg}
+                      placeholder="blur"
+                      layout="responsive"
+                    />
+                    <Typography variant="subtitle2">
                       Circular Sun House on &nbsp;
                       <ExternalLink href="https://commons.wikimedia.org/wiki/File:Paradise_Valley-Norman_Lykes_House-1959-1967.JPG">
                         wikimedia
@@ -85,13 +92,17 @@ function PageLongIntro(): JSX.Element {
                         CC
                       </ExternalLink>
                       &nbsp;
-                    </span>
+                    </Typography>
                   </Grid>
                   <Grid item>
-                    <span style={{ fontSize: "0.5em" }}>
-                      <img src="/img/sun_house_side_view.png" width="100%" />
-                      CG reconstruction using Blender
-                    </span>
+                    <Image
+                      src={sunHouseModelImg}
+                      placeholder="blur"
+                      layout="responsive"
+                    />
+                    <Typography variant="subtitle2">
+                      CG reconstruction of Circular Sun House using Blender
+                    </Typography>
                   </Grid>
                 </Grid>
               </Box>
