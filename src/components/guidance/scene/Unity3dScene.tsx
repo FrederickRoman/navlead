@@ -67,12 +67,22 @@ function Unity3DMap(): JSX.Element {
           backgroundImage: "url(/img/maze_pattern_by_peax_under_CC.webp)",
         }}
       >
-        <canvas
-          id="unity-canvas"
-          width="100vw"
-          height="calc(min(100vw/1.6, 90vh))"
-          tabIndex={0}
-        />
+        <div
+          style={{
+            width: "100%",
+            display: "grid",
+            placeContent: "center",
+            background: "black",
+          }}
+        >
+          <canvas
+            id="unity-canvas"
+            width="96vw"
+            height="calc(min(96vw/1.6, 90vh))"
+            tabIndex={0}
+          />
+        </div>
+
         {/* <input id="canvas-mobile-keyboard-input" type="text" style={{display:"fixed", left:-2000}}/> */}
         <div
           id="unity-loading-bar"
@@ -154,14 +164,12 @@ function Unity3DMap(): JSX.Element {
               display: "grid",
               gridTemplateRows: "1fr",
               gridTemplateColumns: "40px 1fr",
-             float: "left"
-              
+              float: "left",
             }}
           >
             <div
               id="navlead-logo"
               style={{
-                
                 width: 40,
                 height: 40,
                 background: "url('/img/navlead_logo.png') no-repeat center",
@@ -171,7 +179,7 @@ function Unity3DMap(): JSX.Element {
               id="unity-build-title"
               style={{
                 color: "#a158a3",
-              
+
                 textAlign: "center",
                 marginLeft: 5,
                 marginRight: 10,
