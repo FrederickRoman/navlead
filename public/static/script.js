@@ -141,4 +141,9 @@
     canvas.focus();
     //console.log("canvas was touchstarted");
   });
+  // Added
+  canvas.addEventListener("click", function () {
+    canvas.focus();
+    //console.log("canvas was touchstarted");
+  });
 })();
