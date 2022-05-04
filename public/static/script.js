@@ -143,7 +143,7 @@
   });
   // Added
   canvas.addEventListener("click", function () {
-    canvas.focus();
+    document.querySelector("#canvas-mobile-keyboard-input").focus();
     //console.log("canvas was touchstarted");
   });
 })();
