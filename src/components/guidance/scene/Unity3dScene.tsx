@@ -73,7 +73,7 @@ function Unity3DMap(): JSX.Element {
           height="calc(min(100vw/1.6, 90vh))"
           tabIndex={0}
         />
-        <input id="canvas-mobile-keyboard-input" type="text" style={{display:"none"}}/>
+        <input id="canvas-mobile-keyboard-input" type="text" style={{display:"fixed", left:-2000}}/>
         <div
           id="unity-loading-bar"
           style={{
