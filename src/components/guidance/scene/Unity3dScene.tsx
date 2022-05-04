@@ -74,9 +74,7 @@ function useNavGuide(): void {
   }, []);
 }
 
-function Unity3DMap(): JSX.Element {
-  useLoadUnityScript();
-  useNavGuide();
+function UnityContainer(props: { children: React.ReactNode }): JSX.Element {
   return (
     <div
       id="unity-container"
@@ -87,128 +85,170 @@ function Unity3DMap(): JSX.Element {
         backgroundImage: "url(/img/maze_pattern_by_peax_under_CC.webp)",
       }}
     >
+      {props.children}
+    </div>
+  );
+}
+
+function CanvasContainer(props: { children: React.ReactNode }): JSX.Element {
+  return (
+    <div
+      style={{
+        width: "100%",
+        display: "grid",
+        placeContent: "center",
+        background: "white",
+      }}
+    >
+      {props.children}
+    </div>
+  );
+}
+
+function UnityCanvas(): JSX.Element {
+  return (
+    <canvas
+      id="unity-canvas"
+      width="96vw"
+      height="calc(min(96vw/1.6, 90vh))"
+      tabIndex={0}
+    />
+  );
+}
+
+function UnityLoadingBar(): JSX.Element {
+  return (
+    <div
+      id="unity-loading-bar"
+      style={{
+        position: "absolute",
+        left: "50%",
+        top: "50%",
+        transform: "translate(-50%, -50%)",
+        display: "none",
+      }}
+    >
       <div
+        id="unity-logo"
         style={{
-          width: "100%",
-          display: "grid",
-          placeContent: "center",
-          background: "white",
+          width: 154,
+          height: 130,
+          background:
+            "url('/static/TemplateData/unity-logo-light.png') no-repeat center",
         }}
-      >
-        <canvas
-          id="unity-canvas"
-          width="96vw"
-          height="calc(min(96vw/1.6, 90vh))"
-          tabIndex={0}
-        />
-      </div>
+      />
       <div
-        id="unity-loading-bar"
+        id="unity-progress-bar-empty"
         style={{
-          position: "absolute",
-          left: "50%",
-          top: "50%",
-          transform: "translate(-50%, -50%)",
-          display: "none",
+          width: 141,
+          height: 18,
+          marginTop: 10,
+          background:
+            "url('/static/TemplateData/progress-bar-empty-light.png') no-repeat center",
         }}
       >
         <div
-          id="unity-logo"
+          id="unity-progress-bar-full"
           style={{
-            width: 154,
-            height: 130,
-            background:
-              "url('/static/TemplateData/unity-logo-light.png') no-repeat center",
-          }}
-        />
-        <div
-          id="unity-progress-bar-empty"
-          style={{
-            width: 141,
+            width: "0%",
             height: 18,
             marginTop: 10,
             background:
-              "url('/static/TemplateData/progress-bar-empty-light.png') no-repeat center",
+              "url('/static/TemplateData/progress-bar-full-light.png') no-repeat center",
           }}
-        >
-          <div
-            id="unity-progress-bar-full"
-            style={{
-              width: "0%",
-              height: 18,
-              marginTop: 10,
-              background:
-                "url('/static/TemplateData/progress-bar-full-light.png') no-repeat center",
-            }}
-          />
-        </div>
+        />
       </div>
+    </div>
+  );
+}
+
+function UnityWarning(): JSX.Element {
+  return (
+    <div
+      id="unity-warning"
+      style={{
+        position: "absolute",
+        left: "50%",
+        top: "5%",
+        transform: "translate(-50%)",
+        background: "white",
+        padding: 10,
+        display: "none",
+      }}
+    />
+  );
+}
+
+function UnityFooter(): JSX.Element {
+  return (
+    <div id="unity-footer">
       <div
-        id="unity-warning"
+        id="unity-webgl-logo"
         style={{
-          position: "absolute",
-          left: "50%",
-          top: "5%",
-          transform: "translate(-50%)",
-          background: "white",
-          padding: 10,
-          display: "none",
+          float: "left",
+          width: 204,
+          height: 38,
+          background:
+            "url('/static/TemplateData/webgl-logo.png') no-repeat center",
         }}
       />
-      <div id="unity-footer">
+      <div
+        id="unity-fullscreen-button"
+        style={{
+          float: "right",
+          color: "white",
+          width: 38,
+          height: 38,
+          background:
+            "url('/static/TemplateData/fullscreen-button.png') no-repeat center",
+        }}
+      />
+      <div
+        style={{
+          display: "grid",
+          gridTemplateRows: "1fr",
+          gridTemplateColumns: "40px 1fr",
+          float: "left",
+        }}
+      >
         <div
-          id="unity-webgl-logo"
+          id="navlead-logo"
           style={{
-            float: "left",
-            width: 204,
-            height: 38,
-            background:
-              "url('/static/TemplateData/webgl-logo.png') no-repeat center",
+            width: 40,
+            height: 40,
+            background: "url('/img/navlead_logo.png') no-repeat center",
           }}
         />
         <div
-          id="unity-fullscreen-button"
+          id="unity-build-title"
           style={{
-            float: "right",
-            color: "white",
-            width: 38,
-            height: 38,
-            background:
-              "url('/static/TemplateData/fullscreen-button.png') no-repeat center",
-          }}
-        />
-        <div
-          style={{
-            display: "grid",
-            gridTemplateRows: "1fr",
-            gridTemplateColumns: "40px 1fr",
-            float: "left",
+            color: "#a158a3",
+            textAlign: "center",
+            marginLeft: 5,
+            marginRight: 10,
+            fontFamily: "'Audiowide', arial, cursive",
+            fontSize: 26,
           }}
         >
-          <div
-            id="navlead-logo"
-            style={{
-              width: 40,
-              height: 40,
-              background: "url('/img/navlead_logo.png') no-repeat center",
-            }}
-          />
-          <div
-            id="unity-build-title"
-            style={{
-              color: "#a158a3",
-              textAlign: "center",
-              marginLeft: 5,
-              marginRight: 10,
-              fontFamily: "'Audiowide', arial, cursive",
-              fontSize: 26,
-            }}
-          >
-            NavLead
-          </div>
+          NavLead
         </div>
       </div>
     </div>
+  );
+}
+
+function Unity3DMap(): JSX.Element {
+  useLoadUnityScript();
+  useNavGuide();
+  return (
+    <UnityContainer>
+      <CanvasContainer>
+        <UnityCanvas />
+      </CanvasContainer>
+      <UnityLoadingBar />
+      <UnityWarning />
+      <UnityFooter />
+    </UnityContainer>
   );
 }
 
