@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Head from "next/head";
 import HeroBanner from "@/components/banner/HeroBanner";
 import PageBriefIntro from "@/components/content/home/PageBriefIntro";
@@ -13,16 +14,22 @@ const PageHead = (): JSX.Element => (
   </Head>
 );
 
-const Home: NextPage = () => (
-  <div>
-    <PageHead />
-    <main>
-      <HeroBanner />
-      <PageBriefIntro />
-      <NavGuidance />
-      <PageLongIntro />
-    </main>
-  </div>
-);
+const Home: NextPage = () => {
+  const [demoSeenBefore, setDemoSeenBefore] = useState<boolean>(false);
+  return (
+    <div>
+      <PageHead />
+      <main>
+        <HeroBanner />
+        <PageBriefIntro />
+        <NavGuidance
+          demoSeenBefore={demoSeenBefore}
+          setDemoSeenBefore={setDemoSeenBefore}
+        />
+        <PageLongIntro />
+      </main>
+    </div>
+  );
+};
 
 export default Home;
