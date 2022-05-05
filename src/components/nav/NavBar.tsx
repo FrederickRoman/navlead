@@ -1,46 +1,6 @@
-import Image from "next/image";
-import { AppBar, Box, Button, Grid, Toolbar, Typography } from "@mui/material";
-import logoImg from "@/public/img/navlead_logo_light.png";
-
-function HomeLink(): JSX.Element {
-  return (
-    <Box>
-      <Button>
-        <Grid container justifyContent="center" alignItems="center" gap={0.1}>
-          <Grid item>
-            <Grid container justifyContent="center" alignItems="center">
-              <Grid item>
-                <Image
-                  priority
-                  width={22}
-                  height={22}
-                  alt="Person texting on a mobile chat app while driving"
-                  src={logoImg}
-                />
-              </Grid>
-            </Grid>
-          </Grid>
-          <Grid item>
-            <Typography
-              variant="h6"
-              sx={{
-                textTransform: "none",
-                fontFamily: "'Audiowide', cursive",
-                color: "#f3e5f5",
-              }}
-            >
-              Navlead
-            </Typography>
-          </Grid>
-        </Grid>
-      </Button>
-    </Box>
-  );
-}
-
-function AboutLink(): JSX.Element {
-  return <Box sx={{ color: "#f3e5f5" }}>About</Box>;
-}
+import { AppBar, Grid, Toolbar } from "@mui/material";
+import AboutLink from "./links/AboutLink";
+import HomeLink from "./links/HomeLink";
 
 function NavBar(): JSX.Element {
   return (
