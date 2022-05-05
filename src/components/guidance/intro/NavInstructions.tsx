@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 
 function NavInstructions(): JSX.Element {
   return (
@@ -12,10 +12,26 @@ function NavInstructions(): JSX.Element {
       <Typography variant="h4" component="div" sx={{ fontWeight: "bold" }}>
         Demo instructions:
       </Typography>
-      <Box sx={{ textAlign: "left" }}>
-        <Typography variant="h5">Choose a target household item</Typography>
-        <Typography variant="h5">Navigate the house (using WASD keys)</Typography>
-        <Typography variant="h5">Ask the chatbot for assistance</Typography>
+      <Box px={1} my={2} sx={{ textAlign: "left" }}>
+        <Grid
+          container
+          flexDirection="column"
+          justifyContent="center"
+          alignItems="center"
+          gap={1}
+        >
+          <Grid item>
+            <Typography variant="h5">Choose a target household item</Typography>
+          </Grid>
+          <Grid item>
+            <Typography variant="h5">
+              Navigate the house (using WASD keys)
+            </Typography>
+          </Grid>
+          <Grid item>
+            <Typography variant="h5">Ask the chatbot for assistance</Typography>
+          </Grid>
+        </Grid>
       </Box>
     </Box>
   );
