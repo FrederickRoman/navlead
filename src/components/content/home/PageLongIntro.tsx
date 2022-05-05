@@ -5,13 +5,21 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import ExternalLink from "@/components/link/ExternalLink";
 import sunHouseModelImg from "@/public/img/sun_house_side_view.png";
 import sunHousePhotoImg from "@/public/img/sun_house_wiki.jpg";
-
+import horizontalDiagramImg from "@/public/img/horizontal_diagram.png";
+import verticalDiagramImg from "@/public/img/vertical_diagram.png";
 
 function ProcessDiagramImage(): JSX.Element {
   const theme = useTheme();
   const isScreenWide = useMediaQuery(theme.breakpoints.up("sm"));
-  const src = `img/${isScreenWide ? "horizontal" : "vertical"}_diagram.png`;
-  return <img src={src} alt="navlead process diagram" width="100%" />;
+  const src = isScreenWide ? horizontalDiagramImg : verticalDiagramImg;
+  return (
+    <Image
+      src={src}
+      placeholder="blur"
+      layout="responsive"
+      alt="navlead process diagram"
+    />
+  );
 }
 
 function PageLongIntro(): JSX.Element {
@@ -40,8 +48,9 @@ function PageLongIntro(): JSX.Element {
                 question to the chatbot.
               </li>
               <li>
-                This pages sends the question along with the user&apos;s location in
-                the 3D enviroment to an API server requesting the answer.
+                This pages sends the question along with the user&apos;s
+                location in the 3D enviroment to an API server requesting the
+                answer.
               </li>
               <li>The API server validates and authentificates the request.</li>
               <li>
