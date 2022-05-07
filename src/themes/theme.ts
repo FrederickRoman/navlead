@@ -24,4 +24,5 @@ const theme: Theme = createTheme({
   },
 });
 
+export const brandFontFamily = "'Audiowide', Arial, Helvetica, sans-serif";
 export default theme;
