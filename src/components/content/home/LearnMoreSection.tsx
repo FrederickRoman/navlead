@@ -11,7 +11,7 @@ function LearnMoreSection(): JSX.Element {
     >
       <Grid container justifyContent="center" alignItems="center">
         <Grid item>
-          <Link href="/about" passHref>
+          <Link href="/comingSoon" passHref>
             <Button component="a" variant="contained">
               Learn More
             </Button>

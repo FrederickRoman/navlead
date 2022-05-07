@@ -3,7 +3,7 @@ import { Box, Typography } from "@mui/material";
 
 function AboutLink(): JSX.Element {
   return (
-    <Link href="/about" passHref>
+    <Link href="/comingSoon" passHref>
       <Box component="a" sx={{ textDecoration: "none", color: "#f3e5f5" }}>
         <Typography
           variant="h6"
