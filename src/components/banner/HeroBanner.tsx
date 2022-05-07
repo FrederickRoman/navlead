@@ -1,59 +1,7 @@
-import Image from "next/image";
-import { Box, Grid, Typography } from "@mui/material";
-import logoImg from "@/public/img/navlead_logo.svg";
-
-function BackgroundVideo(): JSX.Element {
-  return (
-    <Grid container justifyContent="center" alignItems="center">
-      <Grid item>
-        <Box component="video" autoPlay loop muted width="99vw">
-          <source src="video/hero_bg_video.mp4" type="video/mp4" />
-        </Box>
-      </Grid>
-    </Grid>
-  );
-}
-
-function FullBrandLogo(): JSX.Element {
-  return (
-    <Grid container justifyContent="center" alignItems="center">
-      <Grid item>
-        <Image src={logoImg} width={100} height={100} alt="Navlead logo" />
-      </Grid>
-      <Grid item>
-        <Box>
-          <Typography
-            variant="h1"
-            sx={{
-              color: "primary.light",
-              fontFamily: "'Audiowide', cursive",
-              fontSize: "clamp(2rem, 10vw, 5rem)",
-              textAlign: "center",
-            }}
-          >
-            Navlead
-          </Typography>
-        </Box>
-      </Grid>
-    </Grid>
-  );
-}
-
-function BrandSlogan(): JSX.Element {
-  return (
-    <Typography
-      variant="h2"
-      sx={{
-        color: "#f3e5f5",
-        fontSize: "clamp(1rem, 5vw, 2.5rem)",
-        textAlign: "center",
-        padding: 2,
-      }}
-    >
-      3D Navigation Assistance Chatbot
-    </Typography>
-  );
-}
+import { Box, Grid } from "@mui/material";
+import BackgroundVideo from "./background/BackgroundVideo";
+import FullBrandLogo from "./foreground/FullBrandLogo";
+import BrandSlogan from "./foreground/BrandSlogan";
 
 function HeroBanner(): JSX.Element {
   return (
