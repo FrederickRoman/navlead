@@ -1,25 +1,17 @@
-import Head from "next/head";
 import { Box, Grid, Typography } from "@mui/material";
 import SmoothScrollCss from "@/components/content/about/base/SmoothScrollCss";
 import ContentIndex from "@/components/content/about/ContentIndex";
 import ContentSection from "@/components/content/about/ContentSection";
 import ImageCollage from "@/components/content/about/ImageCollage";
+import PageHead from "@/components/seo/PageHead";
 import type { NextPage } from "next";
-
-const PageHead = (): JSX.Element => (
-  <Head>
-    <title>Navlead | About </title>
-    <meta
-      name="description"
-      content="Navlead: 3D Navigation Assistance Chatbot. Learn about Navlead: from CG though AI modeling to deployment."
-    />
-    <link rel="icon" href="/favicon.ico" />
-  </Head>
-);
 
 const About: NextPage = () => (
   <>
-    <PageHead />
+    <PageHead
+      title="Navlead | About"
+      description="Navlead: 3D Navigation Assistance Chatbot. Learn about Navlead: from CG though AI modeling to deployment."
+    />
     <SmoothScrollCss />
     <Box component="article" sx={{ my: 4 }}>
       <Grid

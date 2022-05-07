@@ -1,21 +1,14 @@
 import Head from "next/head";
 import { Grid, Typography } from "@mui/material";
+import PageHead from "@/components/seo/PageHead";
 import type { NextPage } from "next";
-
-const PageHead = (): JSX.Element => (
-  <Head>
-    <title>Navlead | Coming soon!</title>
-    <meta
-      name="description"
-      content="Navlead (3D Navigation Assistance Chatbot) comming soon page."
-    />
-    <link rel="icon" href="/favicon.ico" />
-  </Head>
-);
 
 const ComingSoon: NextPage = () => (
   <>
-    <PageHead />
+    <PageHead
+      title="Navlead | Coming soon!"
+      description="Navlead (3D Navigation Assistance Chatbot) comming soon page."
+    />
     <Grid
       container
       component="main"
