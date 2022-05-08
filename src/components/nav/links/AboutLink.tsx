@@ -4,7 +4,7 @@ import { lightestFontColor } from "@/themes/theme";
 
 function AboutLink(): JSX.Element {
   return (
-    <Link href="/comingSoon" passHref>
+    <Link href="/about" passHref>
       <Box component="a" sx={{ textDecoration: "none", color: "#f3e5f5" }}>
         <Typography
           variant="h6"
