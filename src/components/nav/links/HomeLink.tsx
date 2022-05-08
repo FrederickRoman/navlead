@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Box, Button, Grid, Typography } from "@mui/material";
-import { brandFontFamily } from "@/themes/theme";
+import { brandFontFamily, lightestFontColor } from "@/themes/theme";
 import logoImg from "@/public/img/navlead_logo_light.png";
 
 function HomeLink(): JSX.Element {
@@ -29,7 +29,7 @@ function HomeLink(): JSX.Element {
                 sx={{
                   textTransform: "none",
                   fontFamily: brandFontFamily,
-                  color: "#f3e5f5",
+                  color: lightestFontColor,
                 }}
               >
                 Navlead

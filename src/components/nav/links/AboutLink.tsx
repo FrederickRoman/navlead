@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Box, Typography } from "@mui/material";
+import { lightestFontColor } from "@/themes/theme";
 
 function AboutLink(): JSX.Element {
   return (
@@ -9,7 +10,7 @@ function AboutLink(): JSX.Element {
           variant="h6"
           sx={{
             textTransform: "none",
-            color: "#f3e5f5",
+            color: lightestFontColor,
           }}
         >
           About

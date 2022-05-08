@@ -19,7 +19,7 @@ function MainFooter(): JSX.Element {
                   underline="hover"
                   href="https://www.frederickroman.com/"
                 >
-                  <Typography variant="body1" color="#f3e5f5" align="center">
+                  <Typography variant="body1" color="white" align="center">
                     © &nbsp; Frederick Roman {currentYear} &amp;
                   </Typography>
                   <br />
@@ -32,7 +32,7 @@ function MainFooter(): JSX.Element {
                   underline="hover"
                   href="https://homeroroman.com/"
                 >
-                  <Typography variant="body1" color="#f3e5f5" align="center">
+                  <Typography variant="body1" color="white" align="center">
                     © &nbsp; Homero Roman {currentYear}
                   </Typography>
                 </Link>
