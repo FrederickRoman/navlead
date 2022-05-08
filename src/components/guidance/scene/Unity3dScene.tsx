@@ -1,7 +1,8 @@
 import { useEffect } from "react";
+import NavGuideService from "@/services/client/NavGuideService";
+import { brandFontFamily } from "@/themes/theme";
 import type Location from "@/types/interfaces/Location";
 import type Traveler from "@/types/interfaces/Traveler";
-import NavGuideService from "@/services/client/NavGuideService";
 
 declare global {
   interface Window {
@@ -97,7 +98,7 @@ function CanvasContainer(props: { children: React.ReactNode }): JSX.Element {
         width: "100%",
         display: "grid",
         placeContent: "center",
-        background: "white",
+        backgroundColor: "white",
       }}
     >
       {props.children}
@@ -181,7 +182,7 @@ function UnityWarning(): JSX.Element {
 
 function UnityFooter(): JSX.Element {
   return (
-    <div id="unity-footer">
+    <div id="unity-footer" style={{ display: "none" }}>
       <div
         id="unity-webgl-logo"
         style={{
@@ -226,7 +227,7 @@ function UnityFooter(): JSX.Element {
             textAlign: "center",
             marginLeft: 5,
             marginRight: 10,
-            fontFamily: "'Audiowide', arial, cursive",
+            fontFamily: brandFontFamily,
             fontSize: 26,
           }}
         >

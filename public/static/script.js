@@ -5,6 +5,7 @@
   var progressBarFull = document.querySelector("#unity-progress-bar-full");
   var fullscreenButton = document.querySelector("#unity-fullscreen-button");
   var warningBanner = document.querySelector("#unity-warning");
+  var footer = document.querySelector("#unity-footer");
 
   // Shows a temporary message banner/ribbon for a few seconds, or
   // a permanent error message on top of the canvas if type=='error'.
@@ -82,6 +83,7 @@
       .then((unityInstance) => {
         myGameInstance = unityInstance; //Added
         loadingBar.style.display = "none";
+        footer.style.display = "block";
         fullscreenButton.onclick = () => {
           unityInstance.SetFullscreen(1);
         };
