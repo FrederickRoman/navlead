@@ -238,7 +238,7 @@ function UnityFooter(): JSX.Element {
   );
 }
 
-function Unity3DMap(): JSX.Element {
+function Unity3dNavSim(): JSX.Element {
   useLoadUnityScript();
   useNavGuide();
   return (
@@ -253,4 +253,4 @@ function Unity3DMap(): JSX.Element {
   );
 }
 
-export default Unity3DMap;
+export default Unity3dNavSim;

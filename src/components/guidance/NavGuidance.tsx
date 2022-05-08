@@ -3,7 +3,7 @@ import dynamic from "next/dynamic";
 import { Grid, Box } from "@mui/material";
 import useVisible from "@/hooks/useVisible";
 import NavInstructions from "./intro/NavInstructions";
-const Unity3dScene = dynamic(() => import("./scene/Unity3dScene"));
+const Unity3dNavSim = dynamic(() => import("./simulation/Unity3dNavSim"));
 
 interface Props {
   demoSeenBefore: boolean;
@@ -37,7 +37,7 @@ function NavGuidance(props: Props): JSX.Element {
         </Grid>
         <Grid item>
           <Box width="96vw" height="calc(min(96vw/1.6, 90vh))" ref={demoRef}>
-            {(demoSeenBefore || isDemoSeen) && <Unity3dScene />}
+            {(demoSeenBefore || isDemoSeen) && <Unity3dNavSim />}
           </Box>
         </Grid>
       </Grid>
