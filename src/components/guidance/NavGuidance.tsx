@@ -1,24 +1,8 @@
-import { useRef, useEffect } from "react";
-import dynamic from "next/dynamic";
 import { Grid, Box } from "@mui/material";
-import useVisible from "@/hooks/useVisible";
 import NavInstructions from "./intro/NavInstructions";
-const Unity3dNavSim = dynamic(() => import("./simulation/Unity3dNavSim"));
+import NavSimSection from "./simulation/NavSimSection";
 
-interface Props {
-  demoSeenBefore: boolean;
-  setDemoSeenBefore: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-function NavGuidance(props: Props): JSX.Element {
-  const { demoSeenBefore, setDemoSeenBefore } = props;
-  const demoRef = useRef<HTMLDivElement | null>(null);
-  const isDemoSeen = useVisible(demoRef);
-
-  useEffect(() => {
-    if (isDemoSeen) setDemoSeenBefore(true);
-  }, [isDemoSeen, setDemoSeenBefore]);
-
+function NavGuidance(): JSX.Element {
   return (
     <Box
       component="section"
@@ -36,9 +20,7 @@ function NavGuidance(props: Props): JSX.Element {
           <NavInstructions />
         </Grid>
         <Grid item>
-          <Box width="96vw" height="calc(min(96vw/1.6, 90vh))" ref={demoRef}>
-            {(demoSeenBefore || isDemoSeen) && <Unity3dNavSim />}
-          </Box>
+          <NavSimSection />
         </Grid>
       </Grid>
     </Box>
