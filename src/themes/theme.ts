@@ -1,28 +1,25 @@
 import { createTheme, Theme } from "@mui/material/styles";
+import { grey } from "@mui/material/colors";
 
-import { grey, blue, amber } from "@mui/material/colors";
-
-/**
- * Triadic color palette
- * primary:   #a158a3   purple
- * secondary: #a158a3   amber
- * tertiary:  #00825b   teal
- */
+const lightGrey = grey[100];
+const purple = "#a158a3";
+const amber = "#ffbf00";
 
 const theme: Theme = createTheme({
   palette: {
     mode: "light",
     background: {
-      default: grey[100],
+      default: lightGrey,
     },
     primary: {
-      main: "#a158a3",
+      main: purple,
     },
     secondary: {
-      main: "#ffbf00",
+      main: amber,
     },
   },
 });
 
+export const lightestFontColor = "white";
 export const brandFontFamily = "'Audiowide', Arial, Helvetica, sans-serif";
 export default theme;
