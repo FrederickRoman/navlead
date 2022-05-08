@@ -30,11 +30,11 @@ export default class MyDocument extends Document {
           />
           <link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap&text=Navlead"
           />
           <link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap"
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
         </Head>
         <body>
