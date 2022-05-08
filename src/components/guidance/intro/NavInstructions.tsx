@@ -9,7 +9,7 @@ function NavInstructions(): JSX.Element {
         textAlign: "center",
       }}
     >
-      <Typography variant="h4" component="div" sx={{ fontWeight: "bold" }}>
+      <Typography variant="h4" component="h3" sx={{ fontWeight: "bold" }}>
         Demo instructions:
       </Typography>
       <Box px={1} my={2} sx={{ textAlign: "left" }}>
@@ -21,15 +21,19 @@ function NavInstructions(): JSX.Element {
           gap={1}
         >
           <Grid item>
-            <Typography variant="h5">Choose a target household item</Typography>
+            <Typography variant="h5" component="h4">
+              Choose a target household item
+            </Typography>
           </Grid>
           <Grid item>
-            <Typography variant="h5">
+            <Typography variant="h5" component="h4">
               Navigate the house (using WASD keys)
             </Typography>
           </Grid>
           <Grid item>
-            <Typography variant="h5">Ask the chatbot for assistance</Typography>
+            <Typography variant="h5" component="h4">
+              Ask the chatbot for assistance
+            </Typography>
           </Grid>
         </Grid>
       </Box>

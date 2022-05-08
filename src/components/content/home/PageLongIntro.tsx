@@ -93,7 +93,7 @@ function PageLongIntro(): JSX.Element {
                       layout="responsive"
                       alt="Circular Sun House wikimedia photo"
                     />
-                    <Typography variant="subtitle2">
+                    <Typography variant="subtitle2" component="h4">
                       Circular Sun House on &nbsp;
                       <ExternalLink href="https://commons.wikimedia.org/wiki/File:Paradise_Valley-Norman_Lykes_House-1959-1967.JPG">
                         wikimedia
@@ -112,7 +112,7 @@ function PageLongIntro(): JSX.Element {
                       layout="responsive"
                       alt="Circular Sun House CG model in Blender"
                     />
-                    <Typography variant="subtitle2">
+                    <Typography variant="subtitle2"  component="h4">
                       CG reconstruction of Circular Sun House using Blender
                     </Typography>
                   </Grid>
