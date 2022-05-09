@@ -3,7 +3,12 @@ import { useRef, useEffect, useContext } from "react";
 import { Box } from "@mui/material";
 import useVisible from "@/hooks/useVisible";
 import { ObservationContext } from "contexts/ObservationContext";
-const UnityNavSim = dynamic(() => import("./unity/UnityNavSim"));
+
+const UnityNavSim = dynamic(() => import("./unity/UnityNavSim"), {
+  loading: () => (
+    <p style={{ color: "white" }}>Loading Navigation Assitance Simulation...</p>
+  ),
+});
 
 function NavSimSection(): JSX.Element {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -12,7 +17,7 @@ function NavSimSection(): JSX.Element {
 
   useEffect(() => {
     if (isVisible) setObserved(true);
-  }, [isVisible]);
+  }, [isVisible, setObserved]);
 
   return (
     <Box width="96vw" height="calc(min(96vw/1.6, 90vh))" ref={containerRef}>
