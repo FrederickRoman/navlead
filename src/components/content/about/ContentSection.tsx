@@ -1,8 +1,9 @@
 import { Box, Typography } from "@mui/material";
+import CvdnSampleVideo from "./video/CvdnSampleVideo";
 
 function ContentSection(): JSX.Element {
   return (
-    <Box component="section" px={2} py={20} >
+    <Box component="section" px={2} py={20}>
       <Box component="section" py={10}>
         <Typography variant="h2" id="about-tldr">
           TLDR;
@@ -62,6 +63,7 @@ function ContentSection(): JSX.Element {
       <section>
         <Typography variant="h2">Machine Learning modeling</Typography>
         <Typography variant="body1">Todo</Typography>
+        <CvdnSampleVideo />
       </section>
       <section>
         <Typography variant="h2">References</Typography>
