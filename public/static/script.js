@@ -112,7 +112,7 @@
     console.log(`Message received from Unity: ${message}`);
     //sendAnswerToUnity(message);
     var evtPayload = { detail: message };
-    var msgFromUnityEvt = new CustomEvent("askGuide", evtPayload);
+    var msgFromUnityEvt = new CustomEvent("askNavGuide", evtPayload);
     window.dispatchEvent(msgFromUnityEvt);
   }
 
