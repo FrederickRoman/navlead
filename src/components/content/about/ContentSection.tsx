@@ -1,5 +1,10 @@
+import CodeSection from "@/components/code/CodeSection";
 import { Box, Typography } from "@mui/material";
+import ResultsChart from "./chart/ResultsChart";
+import unitySimToclientWindow from "./code/snippet/unitySimToclientWindow";
 import CvdnSampleVideo from "./video/CvdnSampleVideo";
+
+
 
 function ContentSection(): JSX.Element {
   return (
@@ -64,6 +69,8 @@ function ContentSection(): JSX.Element {
         <Typography variant="h2">Machine Learning modeling</Typography>
         <Typography variant="body1">Todo</Typography>
         <CvdnSampleVideo />
+        <ResultsChart />
+        <CodeSection codeLang="javascript" codeText={unitySimToclientWindow} />
       </section>
       <section>
         <Typography variant="h2">References</Typography>
