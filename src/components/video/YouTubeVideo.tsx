@@ -1,12 +1,10 @@
 interface Props {
   title: string;
   videoId: string;
-  width: number | string;
-  height: number | string;
 }
 
 function YouTubeVideo(props: Props): JSX.Element {
-  const { title, videoId, width, height } = props;
+  const { title, videoId } = props;
   const videoSrc = `https://www.youtube.com/embed/${videoId}`;
   return (
     <iframe
@@ -16,11 +14,11 @@ function YouTubeVideo(props: Props): JSX.Element {
       referrerPolicy="no-referrer-when-downgrade"
       title={title}
       src={videoSrc}
-      width={width}
-      height={height}
+      width="100%"
+      height="100%"
       style={{ background: "#424242" }}
     >
-      <p>Your browser does not support iframes.</p>
+      Your browser does not support iframes.
     </iframe>
   );
 }

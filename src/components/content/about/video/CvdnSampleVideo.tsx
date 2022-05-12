@@ -1,24 +1,24 @@
 import YouTubeVideo from "@/components/video/YouTubeVideo";
 import useWindowWidth from "@/hooks/useWindowWidth";
-import theme from "@/themes/theme";
-import { useMediaQuery } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import { Box, Grid, useMediaQuery } from "@mui/material";
 
 function CvdnSampleVideo() {
   const windowWidth = useWindowWidth();
-  const isScreenWidthNarrow = useMediaQuery(theme.breakpoints.down("xs"));
-  const isScreenWidthWide = useMediaQuery(theme.breakpoints.down("md"));
-  const pad = isScreenWidthWide ? 200 : 600;
-  const width = isScreenWidthNarrow ? "auto" : `${windowWidth - pad}px`;
+  const theme = useTheme();
+  const isScreenWidthNarrow = useMediaQuery(theme.breakpoints.down("sm"));
+  const width = isScreenWidthNarrow ? "100%" : `${windowWidth / 2}px`;
   const height = isScreenWidthNarrow
-    ? "auto"
-    : `${(windowWidth - pad) * (360 / 640)}px`;
+    ? "100%"
+    : `${(windowWidth / 2) * (360 / 640)}px`;
   return (
-    <YouTubeVideo
-      title="CVDN interaction"
-      videoId="BonlITv_PKw"
-      width={width}
-      height={height}
-    />
+    <Grid container justifyContent="center" alignItems="center">
+      <Grid item>
+        <Box width={width} height={height}>
+          <YouTubeVideo title="CVDN interaction" videoId="BonlITv_PKw" />
+        </Box>
+      </Grid>
+    </Grid>
   );
 }
 
