@@ -1,24 +1,21 @@
 import Image from "next/image";
 import { Box, Grid, Typography } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import ExternalLink from "@/components/link/ExternalLink";
 import sunHouseModelImg from "@/public/img/sun_house_side_view.png";
 import sunHousePhotoImg from "@/public/img/sun_house_wiki.jpg";
-import horizontalDiagramImg from "@/public/img/horizontal_diagram.png";
-import verticalDiagramImg from "@/public/img/vertical_diagram.png";
+import sysArchDiagram from "@/public/img/sys_arch_diagram.svg";
+import navleadNetMainDiagram from "@/public/img/navleadnet_main_diagram.svg";
+import ImgContainer from "@/components/container/ImgContainer";
 
 function ProcessDiagramImage(): JSX.Element {
-  const theme = useTheme();
-  const isScreenWide = useMediaQuery(theme.breakpoints.up("sm"));
-  const src = isScreenWide ? horizontalDiagramImg : verticalDiagramImg;
   return (
-    <Image
-      src={src}
-      placeholder="blur"
-      layout="responsive"
-      alt="navlead process diagram"
-    />
+    <ImgContainer>
+      <Image
+        src={sysArchDiagram}
+        layout="responsive"
+        alt="navlead process diagram"
+      />
+    </ImgContainer>
   );
 }
 
@@ -73,50 +70,33 @@ function PageLongIntro(): JSX.Element {
                   The enviroment used in the demo is a reconstruction of Frank
                   Lloyd Wright&apos;s final design: the circular sun house.
                 </p>
-                <p style={{ textAlign: "left" }}>
-                  It was constructed using Blender and exported to Unity to run
-                  on your browser.
-                </p>
-                <p style={{ textAlign: "left" }}>
-                  The chatbot&apos;s UI was then added in Unity as well.
-                </p>
-                <Grid
-                  container
-                  justifyContent="center"
-                  alignItems="center"
-                  gap={10}
-                >
-                  <Grid item>
+                <Box px={5}>
+                  <ImgContainer>
                     <Image
                       src={sunHousePhotoImg}
                       placeholder="blur"
                       layout="responsive"
                       alt="Circular Sun House wikimedia photo"
                     />
-                    <Typography variant="subtitle2" component="h4">
-                      Circular Sun House on &nbsp;
-                      <ExternalLink href="https://commons.wikimedia.org/wiki/File:Paradise_Valley-Norman_Lykes_House-1959-1967.JPG">
-                        wikimedia
-                      </ExternalLink>
-                      &nbsp; under &nbsp;
-                      <ExternalLink href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">
-                        CC
-                      </ExternalLink>
-                      &nbsp;
-                    </Typography>
-                  </Grid>
-                  <Grid item>
+                  </ImgContainer>
+                </Box>
+                <p style={{ textAlign: "left" }}>
+                  It was constructed using Blender and exported to Unity to run
+                  on your browser.
+                </p>
+                <Box px={5}>
+                  <ImgContainer>
                     <Image
                       src={sunHouseModelImg}
                       placeholder="blur"
                       layout="responsive"
                       alt="Circular Sun House CG model in Blender"
                     />
-                    <Typography variant="subtitle2"  component="h4">
-                      CG reconstruction of Circular Sun House using Blender
-                    </Typography>
-                  </Grid>
-                </Grid>
+                  </ImgContainer>
+                </Box>
+                <p style={{ textAlign: "left" }}>
+                  The chatbot&apos;s UI was then added in Unity as well.
+                </p>
               </Box>
             </Grid>
             <Grid item>
@@ -124,7 +104,6 @@ function PageLongIntro(): JSX.Element {
                 <Box component="h3" sx={{ textAlign: "left" }}>
                   NavLeadNet
                 </Box>
-
                 <p style={{ textAlign: "left" }}>
                   NavLeadNet is the navigation guidance deep learning model used
                   here.
@@ -134,6 +113,13 @@ function PageLongIntro(): JSX.Element {
                   the traveler&apos;s question and location (as input sequence)
                   and, then, returns a textual answer (as output sequence).
                 </p>
+                <ImgContainer>
+                  <Image
+                    src={navleadNetMainDiagram}
+                    layout="responsive"
+                    alt="navlead process diagram"
+                  />
+                </ImgContainer>
                 <p style={{ textAlign: "left" }}>
                   It was trained using the CVDN (Cooperative Vision-and-Dialog
                   Navigation) dataset. CVDN is a dataset of human-human dialogs
