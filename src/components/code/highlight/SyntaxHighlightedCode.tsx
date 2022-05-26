@@ -1,11 +1,14 @@
 import { useEffect } from "react";
 import Prism from "prismjs";
-import "prismjs/themes/prism-tomorrow.css";
+import VsCodeTheme from "../theme/VsCodeTheme";
+//import "prismjs/themes/prism-tomorrow.css";
 require("prismjs/components/prism-python");
 require("prismjs/components/prism-csharp");
+require("prismjs/components/prism-jsx");
+require("prismjs/components/prism-tsx");
 
 interface Props {
-  codeLang: "javascript" | "python" | "csharp";
+  codeLang: "javascript" | "python" | "csharp" | "tsx";
   codeText: string;
 }
 
@@ -13,11 +16,13 @@ function SyntaxHighlightedCode(props: Props): JSX.Element {
   const { codeLang, codeText } = props;
   useEffect(() => Prism.highlightAll(), []);
   return (
-    <div className="Code">
-      <pre>
-        <code className={`language-${codeLang}`}>{codeText}</code>
-      </pre>
-    </div>
+    <VsCodeTheme>
+      <div className="Code">
+        <pre>
+          <code className={`language-${codeLang}`}>{codeText}</code>
+        </pre>
+      </div>
+    </VsCodeTheme>
   );
 }
 
