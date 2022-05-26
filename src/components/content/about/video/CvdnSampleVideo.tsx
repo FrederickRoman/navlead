@@ -3,7 +3,7 @@ import useWindowWidth from "@/hooks/useWindowWidth";
 import { useTheme } from "@mui/material/styles";
 import { Box, Grid, useMediaQuery } from "@mui/material";
 
-function CvdnSampleVideo() {
+function CvdnSampleVideo(): JSX.Element {
   const windowWidth = useWindowWidth();
   const theme = useTheme();
   const isScreenWidthNarrow = useMediaQuery(theme.breakpoints.down("sm"));
