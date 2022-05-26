@@ -1,49 +1,101 @@
-import { Box, Typography } from "@mui/material";
+import ExternalLink from "@/components/link/ExternalLink";
+import { Box, Grid, Stack, Typography } from "@mui/material";
+import HREFS from "@/constants/hrefs";
 
 function ReferencesSection(): JSX.Element {
   return (
     <Box component="section" id="about_references">
-      <Typography variant="h2" sx={{ textAlign: "center" }}>
-        References
-      </Typography>
-      <Typography variant="body1">Todo</Typography>
-      <ul>
-        <li>
-          <ul>
-            Simulation
-            <li>Circular Sun House (a.k.a. Norman Lykes House)</li>
-            <li>Blender official site</li>
-            <li>Unity official site</li>
-          </ul>
-        </li>
-        <li>
-          <ul>
-            Client
-            <li>React Official site</li>
-            <li>React hooks</li>
-            <li>Nextjs Officail site</li>
-            <li>Bridging Unity to javascript</li>
-          </ul>
-        </li>
-        <li>
-          <ul>
-            Server
-            <li>Django Official site</li>
-          </ul>
-        </li>
-        <li>
-          <ul>
-            Machine Learning
-            <li>CVDN dataset official site</li>
-            <li>CVDN interaction video</li>
-            <li>Pytorch official site</li>
-            <li>Sequence to sequency architecture</li>
-            <li>Cross entropy loss</li>
-            <li>Teacher forcing</li>
-            <li>BLUE score</li>
-          </ul>
-        </li>
-      </ul>
+      <Stack spacing={4}>
+        <Typography variant="h3" sx={{ textAlign: "center" }}>
+          References
+        </Typography>
+        <Grid container justifyContent="center" alignItems="start">
+          <Box width={260} p={4}>
+            <Stack spacing={1}>
+              <Box
+                component="header"
+                style={{ textAlign: "center", fontWeight: "bold" }}
+              >
+                Simulation
+              </Box>
+              <ExternalLink href={HREFS.sunHouseOnCurbed}>
+                Circular Sun House (a.k.a. Norman Lykes House) on Curbed
+              </ExternalLink>
+              <ExternalLink href={HREFS.blender}>
+                Blender official site
+              </ExternalLink>
+              <ExternalLink href={HREFS.unityPage}>
+                Unity official site
+              </ExternalLink>
+              <ExternalLink href={HREFS.doorProblem}>
+                Door problem of game design
+              </ExternalLink>
+            </Stack>
+          </Box>
+          <Box width={260} p={4}>
+            <Stack spacing={1}>
+              <Box
+                component="header"
+                style={{ textAlign: "center", fontWeight: "bold" }}
+              >
+                Client
+              </Box>
+              <ExternalLink href={HREFS.reactPage}>
+                React Official site
+              </ExternalLink>
+              <ExternalLink href={HREFS.reactHooksPage}>
+                React hooks
+              </ExternalLink>
+              <ExternalLink href={HREFS.nextjsPage}>
+                Nextjs Officail site
+              </ExternalLink>
+              <ExternalLink href={HREFS.unityDocsJs}>
+                Bridging Unity to javascript
+              </ExternalLink>
+            </Stack>
+          </Box>
+          <Box width={260} p={4}>
+            <Stack spacing={1}>
+              <Box
+                component="header"
+                style={{ textAlign: "center", fontWeight: "bold" }}
+              >
+                Server
+              </Box>
+              <ExternalLink href={HREFS.djangoPage}>
+                Django Official site
+              </ExternalLink>
+              <ExternalLink href={HREFS.restApiWiki}>REST API</ExternalLink>
+            </Stack>
+          </Box>
+          <Box width={260} p={4}>
+            <Stack spacing={1}>
+              <Box
+                component="header"
+                style={{ textAlign: "center", fontWeight: "bold" }}
+              >
+                Machine Learning
+              </Box>
+              <ExternalLink href={HREFS.cvdnPage}>
+                CVDN dataset official site
+              </ExternalLink>
+              <ExternalLink href={HREFS.pytorchPage}>
+                Pytorch official site
+              </ExternalLink>
+              <ExternalLink href={HREFS.seq2seq}>
+                Sequence to sequency architecture
+              </ExternalLink>
+              <ExternalLink href={HREFS.crossEntropy}>
+                Cross entropy loss
+              </ExternalLink>
+              <ExternalLink href={HREFS.teacherForcing}>
+                Teacher forcing
+              </ExternalLink>
+              <ExternalLink href={HREFS.blueScore}>BLUE score</ExternalLink>
+            </Stack>
+          </Box>
+        </Grid>
+      </Stack>
     </Box>
   );
 }
