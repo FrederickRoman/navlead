@@ -39,7 +39,15 @@ function MainFooter(): JSX.Element {
               </Grid>
             </Grid>
           </Grid>
-          <Grid item>About</Grid>
+          <Grid item>
+            <Link
+              color="inherit"
+              underline="hover"
+              href="/about"
+            >
+              About
+            </Link>
+          </Grid>
         </Grid>
       </Toolbar>
     </AppBar>
