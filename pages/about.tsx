@@ -13,7 +13,7 @@ const About: NextPage = () => (
       description="Navlead: 3D Navigation Assistance Chatbot. Learn about Navlead: from CG though AI modeling to deployment."
     />
     <SmoothScrollCss />
-    <Box component="article" sx={{ my: 4 }}>
+    <Box component="article" width="100%" py={4}>
       <Grid
         container
         flexDirection="column"
@@ -21,7 +21,12 @@ const About: NextPage = () => (
         alignItems="center"
       >
         <Grid item>
-          <Typography variant="h2" gutterBottom>
+          <Typography
+            variant="h2"
+            component="h1"
+            gutterBottom
+            sx={{ fontWeight: "bold" }}
+          >
             About
           </Typography>
         </Grid>
