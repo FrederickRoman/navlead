@@ -9,56 +9,75 @@ function ContentIndex(): JSX.Element {
         <Card>
           <CardContent>
             <Subindex>
-              <IndexLink href="#about-tldr" text="TLDR;" />
-              <IndexLink href="#about-tldr" text="Motivation" />
+              <IndexLink href="#about_tldr" text="TLDR;" />
+              <IndexLink href="#about_motivation" text="Motivation" />
               <IndexLink
-                href="#about-tldr"
-                text="3D simulated enviroment reconstruction"
+                href="#about_simulation-3d-modeling"
+                text="3D simulation"
               >
                 <Subindex>
-                  <IndexLink href="#about-tldr" text="Modeling" />
-                  <IndexLink href="#about-tldr" text="Interactions" />
                   <IndexLink
-                    href="#about-tldr"
-                    text="Compiling to run on browsers"
+                    href="#about_modeling-3d-enviroment"
+                    text="Modeling 3D enviroment in Blender"
+                  />
+                  <IndexLink
+                    href="#about_adding-game-controls"
+                    text="Adding game controls in Unity"
+                  />
+                  <IndexLink
+                    href="#about_sim-to-browser-unity"
+                    text="Bridging simulation to browser (Unity-side)"
                   />
                 </Subindex>
               </IndexLink>
-              <IndexLink href="#about-tldr" text="Client-side integration">
+              <IndexLink
+                href="#about_client-side"
+                text="Client-side integration"
+              >
                 <Subindex>
-                  <IndexLink href="#about-tldr" text="Loading Unity Script" />
                   <IndexLink
-                    href="#about-tldr"
-                    text="Client-Unity communication"
+                    href="#about_loading-unity-script"
+                    text="Loading Unity Script"
                   />
                   <IndexLink
-                    href="#about-tldr"
-                    text="Client-server communication"
+                    href="#about_sim-to-browser-js"
+                    text="Bridging simulation to browser (browser-side)"
+                  />
+                  <IndexLink
+                    href="#about_answer-sim-question"
+                    text="Answer simulation question"
                   />
                 </Subindex>
               </IndexLink>
-              <IndexLink href="#about-tldr" text="Server-side API">
+              <IndexLink href="#about_server-side" text="Server-side API">
                 <Subindex>
-                  <IndexLink href="#about-tldr" text="Request Handling" />
+                  <IndexLink
+                    href="#about_req-handling"
+                    text="Request handling"
+                  />
                 </Subindex>
               </IndexLink>
-              <IndexLink href="#about-tldr" text="Machine Learning modeling">
+              <IndexLink
+                href="#about_machine-learning"
+                text="Machine Learning"
+              >
                 <Subindex>
-                  <IndexLink href="#about-tldr" text="Data" />
-                  <IndexLink href="#about-tldr" text="Training" />
-                  <IndexLink href="#about-tldr" text="Results" />
+                  <IndexLink href="#about_ml-data" text="Data" />
+                  <IndexLink href="#about_ml-training" text="Training" />
+                  <IndexLink href="#about_ml-results" text="Results" />
                 </Subindex>
               </IndexLink>
-              <IndexLink href="#about-tldr" text="References">
+              <IndexLink href="#about_references" text="References" />
+              <IndexLink href="#about_authors" text="Authors">
                 <Subindex>
-                  <IndexLink href="#about-tldr" text="Reference" />
-                  <IndexLink href="#about-tldr" text="Reference" />
-                </Subindex>
-              </IndexLink>
-              <IndexLink href="#about-tldr" text="Authors">
-                <Subindex>
-                  <IndexLink href="#about-tldr" text="Frederick Roman" />
-                  <IndexLink href="#about-tldr" text="Homero Roman" />
+                  <IndexLink
+                    href="#about_author-frederick-roman"
+                    text="Frederick Roman"
+                  />
+                  <IndexLink
+                    href="#about_author-homero-roman"
+                    text="Homero Roman"
+                  />
                 </Subindex>
               </IndexLink>
             </Subindex>
