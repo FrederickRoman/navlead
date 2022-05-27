@@ -52,6 +52,9 @@ function ReferencesSection(): JSX.Element {
               <ExternalLink href={HREFS.unityDocsJs}>
                 Bridging Unity to javascript
               </ExternalLink>
+              <ExternalLink href={HREFS.addExtJsFiles}>
+                Adding external js files
+              </ExternalLink>
             </Stack>
           </Box>
           <Box width={260} p={4}>
