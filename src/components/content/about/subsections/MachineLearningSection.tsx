@@ -8,6 +8,7 @@ import HREFS from "@/constants/hrefs";
 import CvdnSampleVideo from "../video/CvdnSampleVideo";
 import seq2seqEncoderDiagram from "@/public/img/seq2seq_encoder.png";
 import seq2seqDecoderDiagram from "@/public/img/seq2seq_decoder.png";
+import pytorchLogo from "@/public/img/pytorch_logo.svg";
 import trainVal from "../code/snippet/py/trainVal";
 import CodeSection from "@/components/code/CodeSection";
 import trainSpeaker from "../code/snippet/py/trainSpeaker";
@@ -203,19 +204,42 @@ function ArchitectureSubsection(): JSX.Element {
           </ImgContainer>
           <Typography variant="h5">Training Configuration</Typography>
           <Typography variant="h6">
-            NavLead is written in Pytorch. For optimizer it uses RMSprop with a
-            learning rate of 0.0001 and dropout of 0.5 The loss function used is
-            Cross Entropy [3] with Teacher Forcing [4] where a good text answer
-            is that which is as close as possible to the text answer provided by
-            the human Guide. For example, for a vocabulary of 4 words [left,
-            right, up, down], an untrained model would predict uniform
-            probabilities of [1/4, 1/4, 1/4, 1/4]. With teacher forcing, a
-            single word would be the correct answer, let&apos;s say in this case
-            the word “right.” This means that the correct distribution is
-            [0,1,0,0]. Therefore, the cross-entropy loss for this toy example
-            would be -0*1/4-1*1/4-0*1/4-0*1/4 = -1/4 Since the goal is to
-            minimize the loss, this has the effect of favoring predictions where
-            the model is more confident of the right answer.
+            NavLeadNet is written in &nbsp;
+            <ExternalLink href={HREFS.pytorchPage}>Pytorch</ExternalLink>.
+            Pytorch is an open source machine learning framework
+          </Typography>
+          <Box my={5}>
+            <Grid container justifyContent="center" alignItems="center">
+              <Grid item>
+                <Image
+                  src={pytorchLogo}
+                  width={275}
+                  height={100}
+                  alt="Pytorch logo"
+                />
+              </Grid>
+            </Grid>
+          </Box>
+
+          <Typography variant="h6">
+            For optimizer it uses RMSprop with a learning rate of 0.0001 and
+            dropout of 0.5 The loss function used is &nbsp;
+            <ExternalLink href={HREFS.crossEntropy}>Cross Entropy</ExternalLink>
+            &nbsp; with &nbsp;
+            <ExternalLink href={HREFS.teacherForcing}>
+              Teacher Forcing
+            </ExternalLink>
+            &nbsp; where a good text answer is that which is as close as
+            possible to the text answer provided by the human Guide. For
+            example, for a vocabulary of 4 words [left, right, up, down], an
+            untrained model would predict uniform probabilities of [1/4, 1/4,
+            1/4, 1/4]. With teacher forcing, a single word would be the correct
+            answer, let&apos;s say in this case the word “right.” This means
+            that the correct distribution is [0,1,0,0]. Therefore, the
+            cross-entropy loss for this toy example would be
+            -0*1/4-1*1/4-0*1/4-0*1/4 = -1/4 Since the goal is to minimize the
+            loss, this has the effect of favoring predictions where the model is
+            more confident of the right answer.
           </Typography>
         </Stack>
       </Box>
