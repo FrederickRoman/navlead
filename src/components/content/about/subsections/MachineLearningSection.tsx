@@ -17,6 +17,7 @@ import HREFS from "@/constants/hrefs";
 import CvdnSampleVideo from "../video/CvdnSampleVideo";
 import seq2seqEncoderDiagram from "@/public/img/seq2seq_encoder.png";
 import seq2seqDecoderDiagram from "@/public/img/seq2seq_decoder.png";
+import navleadNetMainDiagram from "@/public/img/navleadnet_main_diagram.svg";
 import pytorchLogo from "@/public/img/pytorch_logo.svg";
 import trainVal from "../code/snippet/py/trainVal";
 import CodeSection from "@/components/code/CodeSection";
@@ -142,6 +143,13 @@ function ArchitectureSubsection(): JSX.Element {
       <Typography variant="h4" py={1}>
         Architecture &#x28;seq2seq with attention using LSTMs&#x29;
       </Typography>
+      <ImgContainer>
+        <Image
+          src={navleadNetMainDiagram}
+          layout="responsive"
+          alt="navlead process diagram"
+        />
+      </ImgContainer>
       <Box py={1}>
         <Stack spacing={8}>
           <Typography variant="h6">
