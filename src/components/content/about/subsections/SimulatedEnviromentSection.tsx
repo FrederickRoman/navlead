@@ -1,7 +1,7 @@
 import Image from "next/image";
 import CodeSection from "@/components/code/CodeSection";
 import ExternalLink from "@/components/link/ExternalLink";
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Grid, Stack, Typography } from "@mui/material";
 import voxeldeskFloorPlan from "@/public/img/voxeldesk_floorplan.png";
 import blenderBedroom from "@/public/img/blender_bedroom.png";
 import unityHouse from "@/public/img/unity_house_interior.png";
@@ -17,6 +17,8 @@ import SunHouseTourVideo from "../video/SunHouseTourVideo";
 import playerMove from "../code/snippet/csharp/playerMove";
 import navlead2dPanels from "@/public/img/navlead_2d_panels.png";
 import livingRoomCamera from "@/public/img/living_room_camera.png";
+import webGlLogo from "@/public/img/WebGL_Logo.svg";
+import wasmLogo from "@/public/img/WebAssembly_Logo.svg";
 import targetPopupBed from "@/public/img/target_popup_bed.png";
 import mainScene from "@/public/img/main_scene.png";
 import dialogPopup from "@/public/img/dialog_popup.png";
@@ -28,6 +30,22 @@ import processKey from "../code/snippet/csharp/processKey";
 import unityKeyboard2 from "@/public/img/unity_keyboard_2.png";
 import simToClient from "@/public/img/sim_to_client.svg";
 
+function ButtonSpan(props: { children: React.ReactNode }): JSX.Element {
+  return (
+    <span
+      style={{
+        backgroundColor: "white",
+        border: "1px solid black",
+        color: "black",
+        borderRadius: "20%",
+        padding: "0px 2px",
+      }}
+    >
+      {props.children}
+    </span>
+  );
+}
+
 function Modeling3dEnviroment(): JSX.Element {
   return (
     <>
@@ -38,7 +56,7 @@ function Modeling3dEnviroment(): JSX.Element {
         <Stack spacing={8}>
           <Typography variant="h6">
             The 3D virtual enviroment used in the demo is based on Frank Lloyd
-            Wright's final design: the Circular Sun House.
+            Wright&apos;s final design: the Circular Sun House.
           </Typography>
           <ImgContainer>
             <Image
@@ -69,7 +87,7 @@ function Modeling3dEnviroment(): JSX.Element {
             First we had to decided how of the house we needed (and wanted) to
             model. To that aim, we did quick a 3D sketch of the floor plan. We
             did the sketch with &nbsp;
-            <ExternalLink href={HREFS.voxelDesk}>Voxeldesk</ExternalLink>.
+            <ExternalLink href={HREFS.voxelDeskPage}>Voxeldesk</ExternalLink>.
             Voxeldesk is an online voxel-art editor thats makes 3D art (such as
             this sketch) easy to create, and it was developed by us too. So this
             is our first draft of the Circular Sun House layout.
@@ -84,9 +102,9 @@ function Modeling3dEnviroment(): JSX.Element {
           </ImgContainer>
           <Typography variant="h6">
             Granted this is very rough sketch; but it got us to realize that we
-            didn't need the exterior the house and even the ceiling. It also got
-            us to realize that building such a curvy house would be too hard
-            with voxels. Since we needed a bigger boat, we got Blender.
+            didn&apos;t need the exterior the house and even the ceiling. It
+            also got us to realize that building such a curvy house would be too
+            hard with voxels. Since we needed a bigger boat, we got Blender.
           </Typography>
           <Typography variant="h6">
             <ExternalLink href={HREFS.blender}>Blender</ExternalLink>&nbsp; is a
@@ -150,8 +168,8 @@ function AddingGameControls(): JSX.Element {
       <Box py={1}>
         <Stack spacing={8}>
           <Typography variant="h6">
-            Our simulation wouldn’t be very useful, if we could navigate in the
-            scene. For this we used Unity.
+            Our simulation wouldn&apos;t be very useful, if we could navigate in
+            the scene. For this we used Unity.
           </Typography>
           <Typography variant="h6">
             <ExternalLink href={HREFS.unityPage}>Unity</ExternalLink> &nbsp; is
@@ -177,8 +195,11 @@ function AddingGameControls(): JSX.Element {
           <Typography variant="h6">
             For the player&apos;s movement, the player object has a script which
             updates the player&apos;s position based on the WASD keys. This
-            movement is smoothed out over the frame rate at the “Update” runtime
-            hook. The code for player movement is as follows:
+            movement is smoothed out over the frame rate at the &nbsp;
+            <ExternalLink href={HREFS.unityUpdateHook}>
+              <code>Update</code> &nbsp;runtime hook
+            </ExternalLink>
+            . The code for player movement is as follows:
           </Typography>
           <CodeSection
             codeName="PlayerMove.cs"
@@ -186,10 +207,13 @@ function AddingGameControls(): JSX.Element {
             codeLang="csharp"
           />
           <Typography variant="h6">
-            Here “_charController” is the CharacterController component attached
-            to the player object. This component allows the movement of the
-            player to be constrained by object collisions and also to react to
-            gravity like a rigid body.
+            Here <code>_charController</code> is the &nbsp;
+            <ExternalLink href={HREFS.unityCharacterController}>
+              CharacterController
+            </ExternalLink>
+            component attached to the player object. This component allows the
+            movement of the player to be constrained by object collisions and
+            also to react to gravity like a rigid body.
           </Typography>
           <Typography variant="h4">Unity 2D UI</Typography>
           <Typography variant="h6">
@@ -209,25 +233,26 @@ function AddingGameControls(): JSX.Element {
           <Typography variant="h6">
             Before the simulation starts, the Splash Screen is active and shows
             the camera view of the living room as the camera looks around the
-            room. Then, when the user clicks on “Start,” the Target Popup
-            becomes active for selecting a target. Clicking on “Ready” starts
-            the simulation and places the player at the start position of the
-            Main Scene. From there, the player may open the Dialog Popup for
-            asking questions or click on the reset button which will prompt the
-            user to select a new target. Targets have triggers attached to them,
-            so when a user reaches the desired target the Congratulations Panel
-            congratulates the player and gives the option to re-start the
-            simulation
+            room. Then, when the user clicks on &nbsp;
+            <ButtonSpan>Start</ButtonSpan>, the Target Popup becomes active for
+            selecting a target. Clicking on &nbsp;
+            <ButtonSpan>Ready</ButtonSpan> starts the simulation and places the
+            player at the start position of the Main Scene. From there, the
+            player may open the Dialog Popup for asking questions or click on
+            the reset button which will prompt the user to select a new target.
+            Targets have triggers attached to them, so when a user reaches the
+            desired target the Congratulations Panel congratulates the player
+            and gives the option to re-start the simulation
           </Typography>
           <Typography variant="h6">
             In order to manage the state of the simulation, a central controller
-            of type UIController has a reference to the UI panels and is able to
-            open or close the panels according to different actions in the
-            simulation. However, there is no explicit notion of a simulation
-            state; meaning that the controller does not explicitly save what is
-            the current simulation state. As shown in the diagram above, except
-            for the splash screen, the panels can be opened from the main scene
-            and can lead back to it.
+            of type &nbsp;<code>UIController</code>&nbsp; has a reference to the
+            UI panels and is able to open or close the panels according to
+            different actions in the simulation. However, there is no explicit
+            notion of a simulation state; meaning that the controller does not
+            explicitly save what is the current simulation state. As shown in
+            the diagram above, except for the splash screen, the panels can be
+            opened from the main scene and can lead back to it.
           </Typography>
           <Typography variant="h4">The Splash Screen</Typography>
           <Typography variant="h6">
@@ -236,8 +261,9 @@ function AddingGameControls(): JSX.Element {
             Navlead logo, has a single button for enabling the user to start the
             simulation. The background of the splash screen demonstrates how the
             3D environment will look like even before the user decides to click
-            on “Start.” This rotating background is achieved by having a camera
-            in the simulation rotate inside the living room.
+            on &nbsp;
+            <ButtonSpan>Start</ButtonSpan>. This rotating background is achieved
+            by having a camera in the simulation rotate inside the living room.
           </Typography>
           <ImgContainer>
             <Image
@@ -257,7 +283,8 @@ function AddingGameControls(): JSX.Element {
           </Typography>
           <Typography variant="h4">The Target Popup</Typography>
           <Typography variant="h6">
-            Once the user clicks on “Start,” the next panel that the user
+            Once the user clicks on &nbsp;
+            <ButtonSpan>Start</ButtonSpan>, the next panel that the user
             interacts with is the Target Popup. It is at this point that the
             user can choose the target for the simulation. Each target is shown
             as a rotating 3D object using the same “Render Texture” technique
@@ -278,10 +305,12 @@ function AddingGameControls(): JSX.Element {
             current target selected. By default, the selected target is “Bed 1.”
             In order for this variable to be updated when the user clicks on an
             item in the dropdown, we attach a listener to the dropdown for the
-            “onValueChanged” event. This way, whenever the user changes the
-            selected value of the dropdown, the corresponding variable for the
-            current target is also updated. Clicking on “Ready” at this point
-            closes the Target Popup and opens the Main Scene.
+            &nbsp;<code>onValueChanged</code>&nbsp; event. This way, whenever
+            the user changes the selected value of the dropdown, the
+            corresponding variable for the current target is also updated.
+            Clicking on &nbsp;
+            <ButtonSpan>Ready</ButtonSpan> &nbsp; at this point closes the
+            Target Popup and opens the Main Scene.
           </Typography>
           <Typography variant="h4">The Main Scene</Typography>
           <Typography variant="h6">
@@ -329,11 +358,12 @@ function AddingGameControls(): JSX.Element {
           <Typography variant="h6">
             This panel contain a text input field for entering questions. On a
             computer with a keyboard, the user can type their questions and then
-            send them by clicking on the airplane-shaped “send” button. And on a
-            mobile device the user can tap on the keyboard icon for opening up
-            an on-screen keyboard to tap each letter at a time. Pressing enter
-            on the keyboard has the same effect as clicking on the send button.
-            Once the question is submitted, Unity sends the GameState to the
+            send them by clicking on the airplane-shaped &nbsp;
+            <ButtonSpan>send</ButtonSpan> &nbsp; button. And on a mobile device
+            the user can tap on the keyboard icon for opening up an on-screen
+            keyboard to tap each letter at a time. Pressing enter on the
+            keyboard has the same effect as clicking on the send button. Once
+            the question is submitted, Unity sends the GameState to the
             front-end to request the Django backend for an answer. The area
             below the text input field shows the conversation history with the
             latest question and answer at the top. While Unity is still waiting
@@ -341,7 +371,8 @@ function AddingGameControls(): JSX.Element {
             of “… waiting for response …” As more questions and answers are
             added to the conversation history, a sidebar appears to allow the
             user to scroll down to older questions. The Dialog Popup can be
-            closed by clicking on the “X” button on the upper right corner.
+            closed by clicking on the &nbsp;
+            <ButtonSpan>X</ButtonSpan> &nbsp; button on the upper right corner.
             Closing the dialog still preserves the conversation history in case
             the user still wishes to go back to it.
           </Typography>
@@ -351,7 +382,8 @@ function AddingGameControls(): JSX.Element {
             target, the Congratulations Panel is a semi-transparent screen that
             displays the message “Congratulations! You found the target!” and
             enables the user to go back to the Target Popup by exposing the
-            “Play Again” button.
+            &nbsp;
+            <ButtonSpan>Play Again</ButtonSpan> &nbsp; button.
           </Typography>
           <ImgContainer>
             <Image
@@ -373,11 +405,12 @@ function AddingGameControls(): JSX.Element {
             codeLang="csharp"
           />
           <Typography variant="h6">
-            Triggers expose the “OnTriggerEnter” runtime hook that runs when the
-            trigger detects that the player has entered it. In this code
-            snippet, the trigger checks whether it is in charge of the current
-            target. If so, it calls the UIController to display the
-            Congratulations Panel.
+            Triggers expose the &nbsp; <code>OnTriggerEnter</code> &nbsp;
+            runtime hook that runs when the trigger detects that the player has
+            entered it. In this code snippet, the trigger checks whether it is
+            in charge of the current target. If so, it calls the &nbsp;
+            <code>UIController</code>&nbsp; to display the Congratulations
+            Panel.
           </Typography>
           <Typography variant="h4">Unity Keyboard</Typography>
           <Typography variant="h6">
@@ -408,12 +441,13 @@ function AddingGameControls(): JSX.Element {
             when the shift key is pressed, and when the numbers key is pressed.
             Upon awakening, each key makes sure to save a reference to its
             parent keyboard and its child text. When a key is pressed, the
-            “KeyPressed” function sends the name of the key to the Keyboard
-            parent for handling. The key also exposes functions for setting its
-            text to one of the 3 states mentioned above. At the parent Keyboard,
-            the “ProcessKey” function takes care of updating the state of the
-            keyboard, adding or removing characters from the input field
-            according to the key that was pressed.
+            &nbsp;<code>KeyPressed</code>&nbsp; function sends the name of the
+            key to the Keyboard parent for handling. The key also exposes
+            functions for setting its text to one of the 3 states mentioned
+            above. At the parent Keyboard, the &nbsp;<code>ProcessKey</code>
+            &nbsp; function takes care of updating the state of the keyboard,
+            adding or removing characters from the input field according to the
+            key that was pressed.
           </Typography>
           <CodeSection
             codeName="ProcessKey.cs"
@@ -421,15 +455,18 @@ function AddingGameControls(): JSX.Element {
             codeLang="csharp"
           />
           <Typography variant="h6">
-            The key “&lt;&#x7E;” stands for delete and calls the
-            “RemoveInputChar” function to delete the last character in the input
-            field. The “shift” key prompts the keyboard to loop through the list
-            of keys and call the function “SetToShiftText” to update each key to
-            the shift state. Similarly, when the key “?12” is pressed, the
-            letters in the keyboard are replaced with numbers and the “?12” key
-            becomes the “abc” key for restoring the keyboard to its default
-            state. The following image shows the keyboard in the state when the
-            numbers key is pressed.
+            The key &nbsp;<ButtonSpan>&lt;&#x7E;</ButtonSpan>&nbsp; stands for
+            delete and calls the &nbsp;<code>RemoveInputChar</code>&nbsp;
+            function to delete the last character in the input field. The
+            “shift” key prompts the keyboard to loop through the list of keys
+            and call the function &nbsp;<code>SetToShiftText</code>&nbsp; to
+            update each key to the shift state. Similarly, when the key &nbsp;
+            <ButtonSpan>?12</ButtonSpan>&nbsp; is pressed, the letters in the
+            keyboard are replaced with numbers and the &nbsp;
+            <ButtonSpan>?12</ButtonSpan>&nbsp; key becomes the &nbsp;
+            <ButtonSpan>abc</ButtonSpan>&nbsp; key for restoring the keyboard to
+            its default state. The following image shows the keyboard in the
+            state when the numbers key is pressed.
           </Typography>
           <ImgContainer>
             <Image
@@ -440,8 +477,9 @@ function AddingGameControls(): JSX.Element {
             />
           </ImgContainer>
           <Typography variant="h6">
-            Finally, pressing “enter” has the same effect as submitting the
-            question and closing the keyboard.
+            Finally, pressing &nbsp;
+            <ButtonSpan>enter</ButtonSpan>&nbsp; has the same effect as
+            submitting the question and closing the keyboard.
           </Typography>
         </Stack>
       </Box>
@@ -473,6 +511,20 @@ function SimuationToBrowserUnitySide(): JSX.Element {
             that greatly benefit of WebGL and Web Assembly for running
             applications on the web.
           </Typography>
+          <ImgContainer>
+            <Grid container justifyContent="space-evenly" alignItems="center">
+              <Grid item style={{ width: "45%" }}>
+                <Image src={webGlLogo} layout="responsive" alt="WebGL logo" />
+              </Grid>
+              <Grid item style={{ width: "25%" }}>
+                <Image
+                  src={wasmLogo}
+                  layout="responsive"
+                  alt="Wasm (Web assmebly) logo"
+                />
+              </Grid>
+            </Grid>
+          </ImgContainer>
           <Typography variant="h6">
             The compiled simulation will send and receive messages from and to
             the browser as follows:
@@ -485,12 +537,13 @@ function SimuationToBrowserUnitySide(): JSX.Element {
             />
           </ImgContainer>
           <Typography variant="h6">
-            When a user clicks the send button to submit a question, the
-            &#x201C;OnSubmitQuestion&#x28;&#x29;&#x201D; callback is called.
-            This function adds the question to the current list of questions.
-            Then, it collects the state of the game in a data class called
-            GameState. The GameState consists of the current question, the
-            target, the location, and the direction vector of the player.
+            When a user clicks the send button to submit a question, the &nbsp;
+            <code>OnSubmitQuestion</code>&nbsp; callback is called. This
+            function adds the question to the current list of questions. Then,
+            it collects the state of the game in a data class called &nbsp;
+            <code>GameState</code>. The &nbsp;<code>GameState</code>&nbsp;
+            consists of the current question, the target, the location, and the
+            direction vector of the player.
           </Typography>
           <CodeSection
             codeName="OnSubmitQuestion.cs"
@@ -499,7 +552,7 @@ function SimuationToBrowserUnitySide(): JSX.Element {
           />
           <Typography variant="h6">
             In order to send the game state to the JavaScript front-end for
-            processing, the function &#x201C;sendGameStateToJS&#x201D;
+            processing, the function &nbsp;<code>sendGameStateToJS</code>&nbsp;
             transforms the GameState into a JSON string representation and calls
             on the SendToJS bridge between Unity and the front-end.
           </Typography>
@@ -514,9 +567,9 @@ function SimuationToBrowserUnitySide(): JSX.Element {
             Unity can expose to the rest of the C# code. Functions in jslib can
             access the browser window of a WebGL-enabled application and make
             calls to function in the webpage. It is through this ability that
-            the &#x201C;SendToJS&#x201D; is able to call the
-            &#x201C;processGameStateFromUnity&#x201D; function in the webpage
-            front-end.
+            the &#x201C;SendToJS&#x201D; is able to call the &nbsp;
+            <code>processGameStateFromUnity</code> &nbsp; function in the
+            webpage front-end.
           </Typography>
           <CodeSection
             codeName="SendToJS.jslib"
