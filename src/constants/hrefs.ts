@@ -36,6 +36,7 @@ const HREFS: Readonly<{ [key: string]: string }> = Object.freeze({
     "https://docs.unity3d.com/ScriptReference/MonoBehaviour.Update.html",
   unityCharacterController:
     "https://docs.unity3d.com/ScriptReference/CharacterController.html",
+    dijkstraAlgorithm:"https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm"
 });
 
 export default HREFS;
