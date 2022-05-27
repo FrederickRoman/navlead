@@ -61,7 +61,7 @@ function DataSection(): JSX.Element {
               <CvdnSampleVideo />
               <Typography variant="h6">
                 The following is an example of a single question-answer exchange
-                with "picture" as a target:
+                with &ldquo;picture&rdquo; as a target:
               </Typography>
               <ImgContainer>
                 <Image
