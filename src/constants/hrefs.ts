@@ -15,7 +15,10 @@ const HREFS: Readonly<{ [key: string]: string }> = Object.freeze({
     "https://docs.unity3d.com/Manual/webgl-interactingwithbrowserscripting.html",
   djangoPage: "https://www.djangoproject.com/",
   reactPage: "https://reactjs.org/",
+  addExtJsFiles:
+    "https://betterprogramming.pub/4-ways-of-adding-external-js-files-in-reactjs-823f85de3668",
   webGlPage: "https://www.khronos.org/webgl/",
+  webGLTemplate: "https://docs.unity3d.com/Manual/webgl-templates.html",
   webAsmPage: "https://webassembly.org/",
   seq2seq: "https://en.wikipedia.org/wiki/Seq2seq",
   nextjsPage: "https://nextjs.org/",
@@ -25,10 +28,14 @@ const HREFS: Readonly<{ [key: string]: string }> = Object.freeze({
   pytorchPage: "https://pytorch.org/",
   doorProblem:
     "https://www.gamedeveloper.com/design/-quot-the-door-problem-quot-of-game-design",
-  restApiWiki:"https://en.wikipedia.org/wiki/Representational_state_transfer",
-  crossEntropy:"https://en.wikipedia.org/wiki/Cross_entropy",
-  teacherForcing:" https://en.wikipedia.org/wiki/Teacher_forcing",
-  blueScore:"https://en.wikipedia.org/wiki/BLEU"
+  restApiWiki: "https://en.wikipedia.org/wiki/Representational_state_transfer",
+  crossEntropy: "https://en.wikipedia.org/wiki/Cross_entropy",
+  teacherForcing: " https://en.wikipedia.org/wiki/Teacher_forcing",
+  blueScore: "https://en.wikipedia.org/wiki/BLEU",
+  unityUpdateHook:
+    "https://docs.unity3d.com/ScriptReference/MonoBehaviour.Update.html",
+  unityCharacterController:
+    "https://docs.unity3d.com/ScriptReference/CharacterController.html",
 });
 
 export default HREFS;
