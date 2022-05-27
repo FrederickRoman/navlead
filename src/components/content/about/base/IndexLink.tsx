@@ -18,7 +18,7 @@ function IndexLink(props: Props): JSX.Element {
             }
           `}
         </style>
-        <a style={{ cursor: "pointer" }}>{text}</a>
+        <span style={{ cursor: "pointer" }}>{text}</span>
         {children}
       </li>
     </Link>
