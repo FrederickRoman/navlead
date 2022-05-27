@@ -1,6 +1,15 @@
 import Image from "next/image";
 import ExternalLink from "@/components/link/ExternalLink";
-import { Box, Grid, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Grid,
+  Stack,
+  Table,
+  TableBody,
+  TableCell,
+  TableRow,
+  Typography,
+} from "@mui/material";
 import instructionDiagram from "@/public/img/instructions_diagram.png";
 import sampleDataDialog from "@/public/video/sample_dialog.gif";
 import ImgContainer from "@/components/container/ImgContainer";
@@ -220,10 +229,37 @@ function ArchitectureSubsection(): JSX.Element {
               </Grid>
             </Grid>
           </Box>
-
           <Typography variant="h6">
-            For optimizer it uses RMSprop with a learning rate of 0.0001 and
-            dropout of 0.5 The loss function used is &nbsp;
+            NavleadNet has a sequence-to-sequence architecture with:
+          </Typography>
+          <Grid container justifyContent="center" alignItems="center">
+            <Grid item>
+              <Table sx={{ width: 280, border: "1px solid black" }}>
+                <TableBody>
+                  <TableRow>
+                    <TableCell align="right">Optimizer</TableCell>
+                    <TableCell align="right">RMSprop</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell align="right">Learning Rate</TableCell>
+                    <TableCell align="right">0.0001</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell align="right">Dropout</TableCell>
+                    <TableCell align="right">0.5</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell align="right">Loss</TableCell>
+                    <TableCell align="right">
+                      Cross entropy with teacher forcing
+                    </TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </Grid>
+          </Grid>
+          <Typography variant="h6">
+            The loss function used is &nbsp;
             <ExternalLink href={HREFS.crossEntropy}>Cross Entropy</ExternalLink>
             &nbsp; with &nbsp;
             <ExternalLink href={HREFS.teacherForcing}>
@@ -257,8 +293,9 @@ function TrainLoopSubsection(): JSX.Element {
         The CVDN dataset is split into 1299 training, 94 seen validation, and
         260 unseen validation dialogs. And, as mentioned above, data
         augmentation is performed at runtime interleaving training of augmented
-        data with the original data at each iteration. The function “trainVal”
-        contains all the necessary steps for training and evaluation as follows:
+        data with the original data at each iteration. The function &nbsp;
+        <code>trainVal</code> &nbsp; contains all the necessary steps for
+        training and evaluation as follows:
       </Typography>
       <CodeSection
         codeName="trainVal.py"
@@ -266,18 +303,25 @@ function TrainLoopSubsection(): JSX.Element {
         codeLang="python"
       />
       <Typography variant="h6">
-        Here “WorldCollection” refers to a data structure for storing
-        information about each house in the CVDN dataset. The basic steps
-        performed in trainVal are those of initializing the training
-        environment, loading the houses into the “WorldCollection,” loading the
-        dialogs with help from the DialogBatcher, reading the vocabulary for the
-        tokenizer, and finally calling on trainSpeaker with all these
-        information to run the training loop for NavLead. More in detail, the
-        function “setup” sets the random seed for all random number generators
-        used. Also, the WorldCollection is a class that contains a dictionary
-        that maps from world id to an instance of a World. Here houses are
-        referred to as instances of the “World” class. Each World is simply a
-        collection of information about a particular house:
+        Here &nbsp;
+        <code>WorldCollection</code> &nbsp; refers to a data structure for
+        storing information about each house in the CVDN dataset. The basic
+        steps performed in trainVal are those of initializing the training
+        environment, loading the houses into the &nbsp;
+        <code>WorldCollection</code>, &nbsp; loading the dialogs with help from
+        the &nbsp;
+        <code>DialogBatcher</code>, &nbsp; reading the vocabulary for the
+        tokenizer, and finally calling on &nbsp;<code>trainSpeaker</code>&nbsp;
+        with all these information to run the training loop for NavLead. More in
+        detail, the function &nbsp;<code>setup</code>&nbsp; sets the random seed
+        for all random number generators used. Also, the &nbsp;
+        <code>WorldCollection</code>&nbsp; is a class that contains a dictionary
+        that maps from world id to an instance of a &nbsp;
+        <code>World</code>. Here houses are referred to as instances of the
+        &nbsp;
+        <code>World</code>&nbsp; class. Each &nbsp;
+        <code>World</code>&nbsp; is simply a collection of information about a
+        particular house:
       </Typography>
       <CodeSection
         codeName="World.py"
@@ -292,8 +336,8 @@ function TrainLoopSubsection(): JSX.Element {
         entrance to a room can be a viewpoint. Each room can potentially have
         multiple viewpoints, so it is common for a house with many rooms to have
         hundreds of these viewpoints. In order to organize the information about
-        each viewpoint, they are saved as instances of the “Viewpoint” data
-        class.
+        each viewpoint, they are saved as instances of the &nbsp;
+        <code>Viewpoint</code>&nbsp; data class.
       </Typography>
       <CodeSection
         codeName="Viewpoint.py"
@@ -301,24 +345,32 @@ function TrainLoopSubsection(): JSX.Element {
         codeLang="python"
       />
       <Typography variant="h6">
-        As shown here, each Viewpoint contains information about its location in
+        As shown here, each &nbsp;
+        <code>Viewpoint</code>&nbsp; contains information about its location in
         3D space and a list of neighbors as well as targets at that location. Of
         these, the list of neighbors is critical for being able to determine the
         path between two viewpoints. For example, when doing data augmentation,
-        a function called “getShortestPath” runs Dijkstra algorithms and returns
-        the list of viewpoints to traverse in order to reach the end viewpoint
-        given a start viewpoint. Moreover, each viewpoint instance records the
-        names of the targets at that location. Targets are recognizable 3D
-        objects like a bed or a plant. A room may contain multiple targets or no
-        targets at all.
+        a function called &nbsp;
+        <code>getShortestPath</code>&nbsp; runs &nbsp;
+        <ExternalLink href={HREFS.dijkstraAlgorithm}>
+          Dijkstra algorithm
+        </ExternalLink>
+        &nbsp; and returns the list of viewpoints to traverse in order to reach
+        the end viewpoint given a start viewpoint. Moreover, each viewpoint
+        instance records the names of the targets at that location. Targets are
+        recognizable 3D objects like a bed or a plant. A room may contain
+        multiple targets or no targets at all.
       </Typography>
       <Typography variant="h6">
-        Looking back at the “trainVal” function, as was mentioned before, the
-        DialogBatcher is a data structure that stores a list of dialogs for a
-        particular set of houses. Since the training and validation sets are two
-        separate sets of dialogs, an instance of DialogBatcher is created for
-        each. The dialogs themselves are organized by the Dialog data structure
-        as follows:
+        Looking back at the &nbsp;
+        <code>trainVal</code>&nbsp; function, as was mentioned before, the
+        &nbsp;
+        <code>DialogBatcher</code>&nbsp; is a data structure that stores a list
+        of dialogs for a particular set of houses. Since the training and
+        validation sets are two separate sets of dialogs, an instance of &nbsp;
+        <code>DialogBatcher</code>&nbsp; is created for each. The dialogs
+        themselves are organized by the &nbsp;
+        <code>Dialog</code>&nbsp; data structure as follows:
       </Typography>
       <CodeSection
         codeName="Dialog.py"
@@ -326,20 +378,26 @@ function TrainLoopSubsection(): JSX.Element {
         codeLang="python"
       />
       <Typography variant="h6">
-        In a few words, a Dialog consists of a question, an answer, the world id
-        and viewpoint where the question was asked along with the target and
+        In a few words, a &nbsp;
+        <code>Dialog</code>&nbsp; consists of a question, an answer, the world
+        id and viewpoint where the question was asked along with the target and
         optionally the next steps taken towards the end viewpoint with the
-        target. The Dialogs are extracted from the question-answer exchanges in
-        the CVDN dataset when the DialogBatcher is instantiated.
+        target. The &nbsp;
+        <code>Dialog</code>s are extracted from the question-answer exchanges in
+        the CVDN dataset when the &nbsp;
+        <code>DialogBatcher</code>&nbsp; is instantiated.
       </Typography>
       <Typography variant="h6">
-        Then, when the trainVal has loaded the training data and validation
-        data, “trainSpeaker” takes care of actually running the training loop to
-        train the NavLead neural network to produce answers from questions.
+        Then, when the &nbsp;
+        <code>trainVal</code>&nbsp; has loaded the training data and validation
+        data, &nbsp;
+        <code>trainSpeaker</code>&nbsp; takes care of actually running the
+        training loop to train the NavLead neural network to produce answers
+        from questions.
       </Typography>
       <Typography variant="h6">
-        The full set of steps for training can be found in the trainSpeaker
-        function as follows:
+        The full set of steps for training can be found in the &nbsp;
+        <code>trainSpeaker</code>&nbsp; function as follows:
       </Typography>
       <CodeSection
         codeName="trainSpeaker.py"
@@ -347,15 +405,16 @@ function TrainLoopSubsection(): JSX.Element {
         codeLang="python"
       />
       <Typography variant="h6">
-        The training of NavLead can be divided into 3 main parts. Namely: First,
-        instantiation and setup of the model; second, the training loop at each
-        interval where we interleave training of the CVDN data with data
-        augmented online at each iteration; and third, validation at the end of
-        each interval.
+        The training of NavLead can be divided into 3 main parts. <br />
+        1. Instantiation and setup of the model.
+        <br /> 2. The training loop at each interval where we interleave
+        training of the CVDN data with data augmented online at each iteration.
+        <br /> 3. Validation at the end of each interval.
       </Typography>
       <Typography variant="h6">
-        On the first part, we create an instance of Speaker and assign it the
-        worldsCollection environment.
+        On the first part, we create an instance of &nbsp;<code>Speaker</code>
+        &nbsp; and assign it the &nbsp;<code>worldsCollection</code>&nbsp;
+        environment.
       </Typography>
       <CodeSection
         codeName="trainSpeaker.py (part 1)"
@@ -363,25 +422,27 @@ function TrainLoopSubsection(): JSX.Element {
         codeLang="python"
       />
       <Typography variant="h6">
-        As mentioned above, the Speaker class is a sequence-to-sequence model
-        that takes in as input a text question and outputs a text answer. Under
-        the hood, it is implemented as an encoder-decoder network. At each step,
-        when walking inside the house, the encoder encodes the 3D location, the
-        direction, the mobility, the targets nearby, the requested target and
-        finally the question into a context vector. This context vector is then
-        used by the decoder to produce the text answer on word at a time. The
-        direction is represented a 2D unit vector whose origin is the current
-        location. The mobility refers to 8 Booleans that indicate for each
-        cardinal direction whether or not the player can move in that direction
-        (North, South, West, East, Northwest, Southwest, Southeast, and
-        Northeast). For instance, if all Booleans are true, then that means that
-        the player can move in all directions. In order to determine whether it
-        is possible to move along a cardinal direction, we loop through the
-        neighboring viewpoints calculating the direction vector from the current
-        location to the neighbor. With this, vector we can determine which is
-        the closest cardinal direction that matches this vector by comparing the
-        angle between the vectors. The class method “getCardinal Direction
-        AlongVector” takes care of this task as follows:
+        As mentioned above, the &nbsp;<code>Speaker</code>&nbsp; class is a
+        sequence-to-sequence model that takes in as input a text question and
+        outputs a text answer. Under the hood, it is implemented as an
+        encoder-decoder network. At each step, when walking inside the house,
+        the encoder encodes the 3D location, the direction, the mobility, the
+        targets nearby, the requested target and finally the question into a
+        context vector. This context vector is then used by the decoder to
+        produce the text answer on word at a time. The direction is represented
+        a 2D unit vector whose origin is the current location. The mobility
+        refers to 8 Booleans that indicate for each cardinal direction whether
+        or not the player can move in that direction (North, South, West, East,
+        Northwest, Southwest, Southeast, and Northeast). For instance, if all
+        Booleans are true, then that means that the player can move in all
+        directions. In order to determine whether it is possible to move along a
+        cardinal direction, we loop through the neighboring viewpoints
+        calculating the direction vector from the current location to the
+        neighbor. With this, vector we can determine which is the closest
+        cardinal direction that matches this vector by comparing the angle
+        between the vectors. The class method &nbsp;
+        <code>getCardinal Direction AlongVector</code>&nbsp; takes care of this
+        task as follows:
       </Typography>
       <CodeSection
         codeName="getCardinalDirectionAlongVector.py"
@@ -395,14 +456,17 @@ function TrainLoopSubsection(): JSX.Element {
         hence decide what direction the player is able to move from a location.
       </Typography>
       <Typography variant="h6">
-        Going back to “train Speaker,” on the second part we have the bulk of
-        the training. At each iteration a random batch of dialogs is selected
-        for training using the “get Random Batch” function provided by the
-        Dialog Batcher As mentioned before, on each training step, the “convert
-        To Step By Step Instructions” takes in the current dialogs and generates
-        new step-by-step instructions between 2 random locations in the same
-        house as the training dialogs. These augmented dialogs are used for
-        training before training on the real dialogs at each iteration.
+        Going back to &nbsp;
+        <code>train Speaker</code>, on the second part we have the bulk of the
+        training. At each iteration a random batch of dialogs is selected for
+        training using the &nbsp;
+        <code>get Random Batch</code>&nbsp; function provided by the Dialog
+        Batcher As mentioned before, on each training step, the &nbsp;
+        <code>convert To Step By Step Instructions</code>&nbsp; takes in the
+        current dialogs and generates new step-by-step instructions between 2
+        random locations in the same house as the training dialogs. These
+        augmented dialogs are used for training before training on the real
+        dialogs at each iteration.
       </Typography>
       <CodeSection
         codeName="trainSpeaker.py (part 2)"
@@ -411,13 +475,14 @@ function TrainLoopSubsection(): JSX.Element {
       />
       <Typography variant="h6">
         Then on part 3, at the end of each interval, the model is evaluated on a
-        set of random dialogs from the validation set. The BLEU score [10],
-        loss, and accuracy are calculated using these validation dialogs. The
-        BLEU score is a metric typically used in machine translation for
-        comparing 2 text sequences. In our case, it is used to judge how close
-        the generated text is to the reference human text answer. The BLEU score
-        itself computes the modified precision metric using n-grams instead of
-        matching word by word between the 2 sentences.
+        set of random dialogs from the validation set. The &nbsp;
+        <ExternalLink href={HREFS.blueScore}>BLEU score</ExternalLink>, loss,
+        and accuracy are calculated using these validation dialogs. The BLEU
+        score is a metric typically used in machine translation for comparing 2
+        text sequences. In our case, it is used to judge how close the generated
+        text is to the reference human text answer. The BLEU score itself
+        computes the modified precision metric using n-grams instead of matching
+        word by word between the 2 sentences.
       </Typography>
       <CodeSection
         codeName="trainSpeaker.py (part 3)"
@@ -451,13 +516,14 @@ function ResultsSubsection(): JSX.Element {
       </Typography>
       <Stack spacing={8}>
         <Typography variant="h6">
-          The BLEU score [10], loss, and accuracy are calculated using these
-          validation dialogs. The BLEU score is a metric typically used in
-          machine translation for comparing 2 text sequences. In our case, it is
-          used to judge how close the generated text is to the reference human
-          text answer. The BLEU score itself computes the modified precision
-          metric using n-grams instead of matching word by word between the 2
-          sentences.
+          The &nbsp;
+          <ExternalLink href={HREFS.blueScore}>BLEU score</ExternalLink>, loss,
+          and accuracy are calculated using these validation dialogs. The BLEU
+          score is a metric typically used in machine translation for comparing
+          2 text sequences. In our case, it is used to judge how close the
+          generated text is to the reference human text answer. The BLEU score
+          itself computes the modified precision metric using n-grams instead of
+          matching word by word between the 2 sentences.
         </Typography>
         <ImgContainer>
           <LineChart
