@@ -1,16 +1,27 @@
-import { Grid, useMediaQuery } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
+import useWindowWidth from "@/hooks/useWindowWidth";
+import { Grid } from "@mui/material";
 
 interface Props {
   children: React.ReactNode;
 }
 
+const CONTAINER_WIDTH: Readonly<{ [size: string]: string }> = Object.freeze({
+  small: "80%",
+  medium: "70%",
+  large: "60%",
+  extraLarge: "50%",
+});
+
 function ImgContainer(props: Props): JSX.Element {
-  const { breakpoints } = useTheme();
-  const isSmall = useMediaQuery(breakpoints.down("sm"));
-  const isMedium = useMediaQuery(breakpoints.between("sm", "md"));
-  const isLarge = useMediaQuery(breakpoints.between("md", "lg"));
-  const width = isSmall ? "80%" : isMedium ? "70%" : isLarge ? "60%" : "50%";
+  const windowWidth = useWindowWidth();
+  const width =
+    windowWidth < 600
+      ? CONTAINER_WIDTH.small
+      : windowWidth < 900
+      ? CONTAINER_WIDTH.medium
+      : windowWidth < 1200
+      ? CONTAINER_WIDTH.large
+      : CONTAINER_WIDTH.extraLarge;
   return (
     <Grid container justifyContent="center" alignItems="center">
       <Grid item sx={{ width }}>
