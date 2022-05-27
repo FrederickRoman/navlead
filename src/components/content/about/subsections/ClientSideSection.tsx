@@ -7,6 +7,9 @@ import navGuide from "../code/snippet/js/navGuide";
 import unitySimToclientWindow from "../code/snippet/js/unitySimToclientWindow";
 import answerTraveler from "@/public/img/answer_traveler.svg";
 import loadUnityDiagram from "@/public/img/load_unity_diagram.svg";
+import reactLogo from "@/public/img/react_logo.svg";
+import ExternalLink from "@/components/link/ExternalLink";
+import HREFS from "@/constants/hrefs";
 
 function SimToBrowserBridge(): JSX.Element {
   return (
@@ -17,10 +20,13 @@ function SimToBrowserBridge(): JSX.Element {
       <Box py={1}>
         <Stack spacing={8}>
           <Typography variant="h6">
-            After we built the Unity simulation (with the official WebGL
-            template), we stablished the communication between it and the
-            browser by passing and receiving messages through the window object.
-            We accomplished that by adding the following lines to script.js
+            After we built the Unity simulation (with the official &nbsp;
+            <ExternalLink href={HREFS.webGLTemplate}>
+              WebGL template
+            </ExternalLink>
+            ), we stablished the communication between it and the browser by
+            passing and receiving messages through the window object. We
+            accomplished that by adding the following lines to script.js
             (Unity&apos;s bootstrap loader).
           </Typography>
           <CodeSection
@@ -44,9 +50,11 @@ function LoadingUnityScript(): JSX.Element {
         <Stack spacing={8}>
           <Typography variant="h6">
             To run the Unity simulation in the browser, we must first load the
-            Unity bootstrap loader script [script.js]. We accomplish this by
-            appending the script asynchronously to the document’s body when the
-            Simulation component is mounted (as suggested by this article).
+            Unity bootstrap loader script (script.js). We accomplish this by
+            appending the script asynchronously to the document&apos;s body when
+            the Simulation component is mounted (as suggested by &nbsp;
+            <ExternalLink href={HREFS.addExtJsFiles}>this article</ExternalLink>
+            ).
           </Typography>
           <Typography variant="h6">
             Since the Unity bootstrap loader script appends the simulation build
@@ -111,10 +119,12 @@ function ClientSideSection(): JSX.Element {
           <Typography variant="h6">
             Once the simulation is finished, we must brought it to the browser.
             Since we decided to embed it in a full-fledge web site, we decided
-            to choose a front-end UI framework. We chose React. React is a free
-            and open-source front-end JavaScript library for building user
-            interfaces based on UI components.
+            to choose a front-end UI framework. We chose &nbsp;
+            <ExternalLink href={HREFS.reactPage}>React</ExternalLink>. React is
+            a free and open-source front-end JavaScript library for building
+            user interfaces based on UI components.
           </Typography>
+          <Image src={reactLogo} width={275} height={100} alt="React logo" />
           <SimToBrowserBridge />
           <LoadingUnityScript />
           <AnswerSimQuestion />
