@@ -84,7 +84,7 @@ function Modeling3dEnviroment(): JSX.Element {
           </Typography>
           <Typography variant="h6">Now to the actual modeling.</Typography>
           <Typography variant="h6">
-            First we had to decided how of the house we needed (and wanted) to
+            First we had to decided how much of the house we needed (and wanted) to
             model. To that aim, we did quick a 3D sketch of the floor plan. We
             did the sketch with &nbsp;
             <ExternalLink href={HREFS.voxelDeskPage}>Voxeldesk</ExternalLink>.
