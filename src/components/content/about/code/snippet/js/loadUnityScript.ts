@@ -1,10 +1,17 @@
 const loadUnityScript = `import { useEffect } from "react";
 
+/**
+ * Appends Unity scripts when the component is mounted 
+ * and removes them when is unmounted.
+ * Note: Once appended, script.js appends loader.js and framework.js
+ */
 function useLoadUnityScript(): void {
     useEffect(() => {
+      /* Source paths to Unity scripts */
       const UNITY_BOOTSTRAP_LOADER_SRC = "/static/script.js";
       const UNITY_BUILD_LOADER_SRC = "/static/Build/ReleaseBuild.loader.js";
       const UNITY_BUILD_FRAMEWORK_SRC = "/static/Build/ReleaseBuild.framework.js";
+      /* Helper functions */
       function appendScript(srcPath: string): void {
         const script = document.createElement("script");
         script.src = srcPath;
@@ -18,6 +25,7 @@ function useLoadUnityScript(): void {
             script.parentNode?.removeChild(script);
         });
       }
+      /* Main functions */
       function appendUnityLoaderScript(): void {
         try {
           appendScript(UNITY_BOOTSTRAP_LOADER_SRC);
@@ -34,8 +42,9 @@ function useLoadUnityScript(): void {
           console.log(error);
         }
       }
-      appendUnityLoaderScript();
-      return () => removeUnityScripts();
+      /* Function calls */
+      appendUnityLoaderScript(); // on mount 
+      return () => removeUnityScripts(); // on unmount
     }, []);
   }
   
