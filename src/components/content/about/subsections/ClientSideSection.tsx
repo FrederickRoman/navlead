@@ -59,7 +59,11 @@ function LoadingUnityScript(): JSX.Element {
           <Typography variant="h6">
             Since the Unity bootstrap loader script appends the simulation build
             scripts, we should remove them when the Simulation component is
-            unmounted. We can implement all that in the following React hook:
+            unmounted. We can implement all that in the following custom &nbsp;
+            <ExternalLink href={HREFS.reactHooksPage}>
+              React hook
+            </ExternalLink>
+            :
           </Typography>
           <ImgContainer>
             <Image
