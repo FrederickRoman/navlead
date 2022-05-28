@@ -18,7 +18,7 @@ The 3D enviroments were reconstructed form real-world houses.
     <img src="https://github.com/FrederickRoman/navlead/blob/main/public/img/target_popup_bed.png" height="300" alt="Navlead simulation iPhone mockup"/>
 </div>
 
-![](https://raw.githubusercontent.com/FrederickRoman/navlead/main/public/video/hero_bg_video.gif?token=GHSAT0AAAAAABVA73LHA5SGR62GF3K47OO6YURYFRA)
+![Navlead gif](https://github.com/FrederickRoman/navlead/blob/main/public/video/hero_bg_video.gif?raw=true)
 
 ## Live website
 
