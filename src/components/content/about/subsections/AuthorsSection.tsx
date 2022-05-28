@@ -24,52 +24,54 @@ function FrederickAuthorSection(): JSX.Element {
       </Typography>
       <Grid container justifyContent="space-evenly" alignItems="center">
         <Grid item>
-          <Grid
-            container
-            flexDirection="column"
-            justifyContent="center"
-            alignItems="center"
-          >
-            <Grid item>
-              <Image
-                src={frederickPhoto}
-                width={300}
-                height={370}
-                alt="Frederick Roman photo"
-              />
+          <Box py={8}>
+            <Grid
+              container
+              flexDirection="column"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Grid item>
+                <Image
+                  src={frederickPhoto}
+                  width={300}
+                  height={370}
+                  alt="Frederick Roman photo"
+                />
+              </Grid>
+              <Grid item>
+                <Stack spacing={2}>
+                  <Link href={HREFS.frederickRoman} passHref>
+                    <Button
+                      component="a"
+                      variant="contained"
+                      startIcon={<WebIcon />}
+                    >
+                      Main Page
+                    </Button>
+                  </Link>
+                  <Link href={HREFS.frederickRomanGithub} passHref>
+                    <Button
+                      component="a"
+                      variant="contained"
+                      startIcon={<GitHubIcon />}
+                    >
+                      Github
+                    </Button>
+                  </Link>
+                  <Link href={HREFS.frederickRomanLinkedIn} passHref>
+                    <Button
+                      component="a"
+                      variant="contained"
+                      startIcon={<LinkedInIcon />}
+                    >
+                      LinkedIn
+                    </Button>
+                  </Link>
+                </Stack>
+              </Grid>
             </Grid>
-            <Grid item>
-              <Stack spacing={2}>
-                <Link href={HREFS.frederickRoman} passHref>
-                  <Button
-                    component="a"
-                    variant="contained"
-                    startIcon={<WebIcon />}
-                  >
-                    Main Page
-                  </Button>
-                </Link>
-                <Link href={HREFS.frederickRomanGithub} passHref>
-                  <Button
-                    component="a"
-                    variant="contained"
-                    startIcon={<GitHubIcon />}
-                  >
-                    Github
-                  </Button>
-                </Link>
-                <Link href={HREFS.frederickRomanLinkedIn} passHref>
-                  <Button
-                    component="a"
-                    variant="contained"
-                    startIcon={<LinkedInIcon />}
-                  >
-                    LinkedIn
-                  </Button>
-                </Link>
-              </Stack>
-            </Grid>
-          </Grid>
+          </Box>
         </Grid>
         <Grid item sx={{ maxWidth: 700 }}>
           <Stack spacing={4}>
@@ -114,54 +116,56 @@ function HomeroAuthorSection(): JSX.Element {
       </Typography>
       <Grid container justifyContent="space-evenly" alignItems="center">
         <Grid item>
-          <Grid
-            container
-            flexDirection="column"
-            justifyContent="center"
-            alignItems="center"
-          >
-            <Grid item>
-              <Box py={4}>
-                <Image
-                  src={homeroPhoto}
-                  width={300}
-                  height={300}
-                  alt="Homero Roman photo"
-                />
-              </Box>
+          <Box py={8}>
+            <Grid
+              container
+              flexDirection="column"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Grid item>
+                <Box py={4}>
+                  <Image
+                    src={homeroPhoto}
+                    width={300}
+                    height={300}
+                    alt="Homero Roman photo"
+                  />
+                </Box>
+              </Grid>
+              <Grid item>
+                <Stack spacing={2}>
+                  <Link href={HREFS.homeroRoman} passHref>
+                    <Button
+                      component="a"
+                      variant="contained"
+                      startIcon={<WebIcon />}
+                    >
+                      Main Page
+                    </Button>
+                  </Link>
+                  <Link href={HREFS.homeroRomanGithub} passHref>
+                    <Button
+                      component="a"
+                      variant="contained"
+                      startIcon={<GitHubIcon />}
+                    >
+                      Github
+                    </Button>
+                  </Link>
+                  <Link href={HREFS.homeroRomanLinkedIn} passHref>
+                    <Button
+                      component="a"
+                      variant="contained"
+                      startIcon={<LinkedInIcon />}
+                    >
+                      LinkedIn
+                    </Button>
+                  </Link>
+                </Stack>
+              </Grid>
             </Grid>
-            <Grid item>
-              <Stack spacing={2}>
-                <Link href={HREFS.homeroRoman} passHref>
-                  <Button
-                    component="a"
-                    variant="contained"
-                    startIcon={<WebIcon />}
-                  >
-                    Main Page
-                  </Button>
-                </Link>
-                <Link href={HREFS.homeroRomanGithub} passHref>
-                  <Button
-                    component="a"
-                    variant="contained"
-                    startIcon={<GitHubIcon />}
-                  >
-                    Github
-                  </Button>
-                </Link>
-                <Link href={HREFS.homeroRomanLinkedIn} passHref>
-                  <Button
-                    component="a"
-                    variant="contained"
-                    startIcon={<LinkedInIcon />}
-                  >
-                    LinkedIn
-                  </Button>
-                </Link>
-              </Stack>
-            </Grid>
-          </Grid>
+          </Box>
         </Grid>
         <Grid item sx={{ maxWidth: 700 }}>
           <Stack spacing={4}>
