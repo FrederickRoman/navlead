@@ -48,3 +48,7 @@ npm run build
 npm run lint
 ```
 
+## Acknowledgements
+### Vision-and-Dialog Navigation
+    https://arxiv.org/abs/1907.04957
+    https://github.com/mmurray/cvdn
