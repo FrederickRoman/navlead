@@ -1,7 +1,7 @@
 import Traveler from "@/types/interfaces/Traveler";
 import axios from "axios";
 
-const API_URL = "http://127.0.0.1:8000/navigation/";
+const API_URL = "https://navlead.herokuapp.com/navigation/";
 
 class NavGuide {
   static async awake(): Promise<void> {
@@ -23,6 +23,7 @@ class NavGuide {
       const res = await axios.post(API_URL, body);
       return res.data.answer;
     } catch (error) {
+      console.log(error)
       return "";
     }
   }
