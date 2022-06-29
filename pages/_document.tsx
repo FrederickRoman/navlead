@@ -21,7 +21,15 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <meta name="theme-color" content={theme.palette.primary.main} />
+          <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+          <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+          <meta name="robots" content="index, follow" />
+          <meta
+            name="description"
+            content="Navigate a 3D enviroment online with our AI-powered assistant chatbot. Inspired by the rise of VR and AI, Navlead combines both into a navigation assistance system that runs through the browser."
+          />
+          <meta name="theme-color" content={theme.palette.background.default} />
+          <meta name="msapplication-TileColor" content="#603cba" />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link
             rel="preconnect"
@@ -36,6 +44,25 @@ export default class MyDocument extends Document {
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
+          <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/apple-touch-icon.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/favicon-32x32.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/favicon-16x16.png"
+          />
+          <link rel="manifest" href="/site.webmanifest" />
+          <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#a158a3" />
         </Head>
         <body>
           <Main />
