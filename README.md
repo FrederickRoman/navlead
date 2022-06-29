@@ -35,7 +35,7 @@ The simulation has custom 3D assets, a chat dialog box, motion controls and game
 Inspired by the rise of VR and AI, this project aims to combine both into a navigation assistance system that can run through the browser.
 
 <div style="display:flex; justify-content:space-evenly; align-items:center;">
-    <img src="https://github.com/FrederickRoman/navlead/blob/main/docs/v_1_3/img/question_sample.png" width="40%" alt="Navlead questin sample"/>
+    <img src="https://github.com/FrederickRoman/navlead/blob/main/docs/v_1_3/img/question_sample.png" width="20%" alt="Navlead questin sample"/>
     <img src="https://github.com/FrederickRoman/navlead/blob/main/public/img/target_popup_bed.png" width="20%" alt="Navlead target sample"/>
     <img src="https://github.com/FrederickRoman/navlead/blob/main/docs/v_1_3/img/location_sample.png" width="10%" alt="Navlead location sample"/>
 </div>
