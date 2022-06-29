@@ -13,7 +13,7 @@ function LearnMoreSection(): JSX.Element {
         <Grid item>
           <Link href="/about" passHref>
             <Button component="a" variant="contained">
-              Learn More
+              How does it work?
             </Button>
           </Link>
         </Grid>
