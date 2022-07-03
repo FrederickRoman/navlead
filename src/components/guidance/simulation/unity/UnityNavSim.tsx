@@ -11,6 +11,11 @@ declare global {
   }
 }
 
+/**
+ * Appends Unity scripts when the component is mounted 
+ * and removes them when is unmounted.
+ * Note: Once appended, script.js appends loader.js and framework.js
+ */
 function useLoadUnityScript(): void {
   useEffect(() => {
     const UNITY_BOOTSTRAP_LOADER_SRC = "/static/script.js";
@@ -50,6 +55,10 @@ function useLoadUnityScript(): void {
   }, []);
 }
 
+/**
+ * Listen for askNavGuide events and answer their inquiries 
+ * through NavGuideService.
+ */
 function useNavGuide(): void {
   useEffect(() => {
     const formatStringToLocation = (location: string): Location => {
@@ -65,12 +74,15 @@ function useNavGuide(): void {
     }
     async function askNavGuide(event: Event): Promise<void> {
       try {
+        /* Collect the traveler's full state */
         const unityGameState = (event as CustomEvent).detail;
         const gameStateObj = JSON.parse(unityGameState);
         const { question, target, location: locationString } = gameStateObj;
         const location: Location = formatStringToLocation(locationString);
         const traveler: Traveler = { question, target, location };
+        /* Ask NavGuideService to answer traveler's question */
         const answer: string = await NavGuideService.answer(traveler);
+        /* Send answer to simulation */
         window.sendAnswerToUnity(answer);
         console.log(answer);
       } catch (error) {
