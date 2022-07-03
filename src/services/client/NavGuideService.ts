@@ -1,6 +1,7 @@
 import axios from "axios";
-import Traveler from "@/types/interfaces/Traveler";
-import Location from "@/types/interfaces/Location";
+import sleep from "@/utils/sleep";
+import type Traveler from "@/types/interfaces/Traveler";
+import type Location from "@/types/interfaces/Location";
 
 const API_URL = "/api/navigation";
 
@@ -14,22 +15,20 @@ function unityToBlenderCoordinates(unityLocation: Location): Location {
 
 class NavGuideService {
   static async answer(traveler: Traveler): Promise<string> {
-    try {
-      const { question, target, location } = traveler;
-      const body = {
-        question,
-        target,
-        location: unityToBlenderCoordinates(location),
-      };
-      console.log(body);
-      const res = await axios.post(API_URL, body);
-      console.log(res);
-      const answer: string = res.data.answer;
-      return answer;
-    } catch (error) {
-      console.log(error);
-      return "";
+    const MAX_RETRIES = 10;
+    const { question, target, location: unityLocation } = traveler;
+    const location = unityToBlenderCoordinates(unityLocation);
+    const body = { question, target, location };
+    for (let i = 0; i < MAX_RETRIES; i++) {
+      try {
+        const res = await axios.post(API_URL, body);
+        return res.data.answer as string;
+      } catch (error) {
+        if (i + 1 === MAX_RETRIES) throw error;
+        else await sleep(Math.pow(2, i) * 500);
+      }
     }
+    return "";
   }
 }
 
