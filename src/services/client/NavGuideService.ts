@@ -14,6 +14,9 @@ function unityToBlenderCoordinates(unityLocation: Location): Location {
 }
 
 class NavGuideService {
+  static async awake(): Promise<void> {
+    await axios.get(`${API_URL}`).catch(console.log);
+  }
   static async answer(traveler: Traveler): Promise<string> {
     const MAX_RETRIES = 10;
     const { question, target, location: unityLocation } = traveler;

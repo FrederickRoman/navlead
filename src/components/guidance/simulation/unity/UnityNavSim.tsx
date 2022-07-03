@@ -56,6 +56,13 @@ function useNavGuide(): void {
       const [x, y, z] = location.split(",").map(parseFloat);
       return { x, y, z };
     };
+    async function awakeNavGuide(): Promise<void> {
+      try {
+        await NavGuideService.awake();
+      } catch (error) {
+        console.log(error);
+      }
+    }
     async function askNavGuide(event: Event): Promise<void> {
       try {
         const unityGameState = (event as CustomEvent).detail;
@@ -70,6 +77,7 @@ function useNavGuide(): void {
         console.log(error);
       }
     }
+    awakeNavGuide();
     window.addEventListener("askNavGuide", askNavGuide);
     return () => window.removeEventListener("askNavGuide", askNavGuide);
   }, []);

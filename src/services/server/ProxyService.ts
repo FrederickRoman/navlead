@@ -13,7 +13,7 @@ class NavGuide {
         API_KEY: process.env.ML_SERVER_API_KEY,
       });
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   }
   static async answer(traveler: Traveler): Promise<string> {
