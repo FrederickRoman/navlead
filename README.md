@@ -44,6 +44,20 @@ Inspired by the rise of VR and AI, this project aims to combine both into a navi
     <img src="https://github.com/FrederickRoman/navlead/blob/main/docs/v_1_3/img/answer_sample.png" width="50%" alt="Navlead answer sample"/>
 </div>
 
+## Tech stack of Navlead
+
+- Client-side 
+    - Simulation
+        - Blender (3.1)
+        - Unity (2020.3 LTS)
+    - UI
+        - React (Next ts)
+- Server-side (<strong>not</strong> on this repo)
+    - API server
+        - Django
+    - ML service
+        - Pytorch
+
 ## In-depth explanation
 
 For an in-depth explanation of this project, please, see [Navlead's About page](https://navlead.vercel.app/about)
