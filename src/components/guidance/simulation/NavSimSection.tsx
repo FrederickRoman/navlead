@@ -1,3 +1,11 @@
+/**
+ * The purpose of this component is to
+ * lazy load the unity navigation simulation (UnityNavSim) 
+ * upon the first observation, and keep it loaded 
+ * until the user exits the index route.
+ * This observation is remembered through the ObservationContext 
+ * that wraps this section of index.tsx
+ */
 import dynamic from "next/dynamic";
 import { useRef, useEffect, useContext } from "react";
 import { Box } from "@mui/material";
