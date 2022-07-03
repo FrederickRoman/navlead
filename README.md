@@ -44,11 +44,32 @@ Inspired by the rise of VR and AI, this project aims to combine both into a navi
     <img src="https://github.com/FrederickRoman/navlead/blob/main/docs/v_1_3/img/answer_sample.png" width="50%" alt="Navlead answer sample"/>
 </div>
 
-### Documentation
+## In-depth explanation
 
 For an in-depth explanation of this project, please, see [Navlead's About page](https://navlead.vercel.app/about)
 
 <img src="https://github.com/FrederickRoman/navlead/blob/main/public/img/about_img_quilt_md.png" width="50%" alt="Navlead's about page image quilt"/>
+
+- [TLDR;](https://navlead.vercel.app/about#about_tldr)
+- [Motivation](https://navlead.vercel.app/about#about_motivation)
+- [3D simulation](https://navlead.vercel.app/about#about_simulation-3d-modeling)
+    - [Modeling 3D enviroment in Blender](https://navlead.vercel.app/about#about_modeling-3d-enviroment)
+    - [Adding game controls in Unity](https://navlead.vercel.app/about#about_adding-game-controls)
+    - [Bridging simulation to browser (Unity-side)](https://navlead.vercel.app/about#about_sim-to-browser-js)
+- [Client-side integration](https://navlead.vercel.app/about#about_client-side)
+    - [Loading Unity Script](https://navlead.vercel.app/about#about_loading-unity-script)
+    - [Bridging simulation to browser (browser-side)](https://navlead.vercel.app/about#about_sim-to-browser-js)
+    - [Answer simulation question](https://navlead.vercel.app/about#about_answer-sim-question)
+- [Server-side API](https://navlead.vercel.app/about#about_server-side)
+    - [Request handling](https://navlead.vercel.app/about#about_req-handling)
+- [Machine Learning](https://navlead.vercel.app/about#about_machine-learning)
+    - [Data](https://navlead.vercel.app/about#about_ml-data)
+    - [Training](https://navlead.vercel.app/about#about_ml-training)
+    - [Results](https://navlead.vercel.app/about#about_ml-results)
+- [References](https://navlead.vercel.app/about#about_references)
+- [Authors](https://navlead.vercel.app/about#about_authors)
+    - [Frederick Roman](https://navlead.vercel.app/about#about_author-frederick-roman)
+    - [Homero Roman](https://navlead.vercel.app/about#about_author-homero-roman)
 
 ## Live website
 
